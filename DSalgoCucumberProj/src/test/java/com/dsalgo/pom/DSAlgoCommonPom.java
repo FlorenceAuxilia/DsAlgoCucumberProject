@@ -1,11 +1,11 @@
-package ds_pom;
+package com.dsalgo.pom;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class common {
+public class DSAlgoCommonPom {
 	WebDriver driver;
-	public common(WebDriver driver)
+	public DSAlgoCommonPom(WebDriver driver)
 	{
 		this.driver=driver;
 		PageFactory.initElements(driver, this);

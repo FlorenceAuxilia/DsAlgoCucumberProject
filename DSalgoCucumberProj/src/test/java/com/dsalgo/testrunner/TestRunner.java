@@ -1,4 +1,4 @@
-package testrunner;
+package com.dsalgo.testrunner;
 
 import org.junit.runner.RunWith;
 
@@ -14,6 +14,6 @@ import io.cucumber.junit.CucumberOptions;
 		)
 
 
-public class test {
+public class TestRunner {
 
 }

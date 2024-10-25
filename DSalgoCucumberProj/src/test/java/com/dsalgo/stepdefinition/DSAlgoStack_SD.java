@@ -1,4 +1,4 @@
-package ds_stepdefinition;
+package com.dsalgo.stepdefinition;
 
 import java.time.Duration;
 
@@ -6,10 +6,11 @@ import org.junit.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-import ds_pom.home;
-import ds_pom.main;
-import ds_pom.sign;
-import ds_pom.stack;
+import com.dsalgo.pom.DSAlgoHomePom;
+import com.dsalgo.pom.DSAlgoGetStartedPom;
+import com.dsalgo.pom.DSAlgoSignInPom;
+import com.dsalgo.pom.DSAlgoStackPom;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -17,7 +18,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class stack_stepdefinition extends common_definition{
+public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 	
 	
 	Actions act;
@@ -30,16 +31,16 @@ public class stack_stepdefinition extends common_definition{
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	    act=new Actions(driver);
-	    mp=new main(driver);
+	    mp=new DSAlgoGetStartedPom(driver);
 	    driver.get("https://dsportalapp.herokuapp.com/");
 	    mp.clickGetStarted();
-	    hp=new home(driver);
+	    hp=new DSAlgoHomePom(driver);
 	    hp.click_Signin();   
-	    sp=new sign(driver);
+	    sp=new DSAlgoSignInPom(driver);
 	    sp.setUserName("ninja4");
 	    sp.setPassword("Tiger123@");
 	    sp.clickLogin();
-	    st=new stack(driver);
+	    st=new DSAlgoStackPom(driver);
 	   
 	}
 	

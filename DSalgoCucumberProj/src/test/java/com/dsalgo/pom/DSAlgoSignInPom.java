@@ -1,11 +1,11 @@
-package ds_pom;
+package com.dsalgo.pom;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class sign extends common {
-	public sign(WebDriver driver) {
+public class DSAlgoSignInPom extends DSAlgoCommonPom {
+	public DSAlgoSignInPom(WebDriver driver) {
 		super(driver);	
 	} 
 

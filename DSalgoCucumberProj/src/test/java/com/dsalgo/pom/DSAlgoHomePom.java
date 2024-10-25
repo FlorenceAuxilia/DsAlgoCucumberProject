@@ -1,4 +1,4 @@
-package ds_pom;
+package com.dsalgo.pom;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-public class home extends common{
+public class DSAlgoHomePom extends DSAlgoCommonPom{
 
-	public home(WebDriver driver) {
+	public DSAlgoHomePom(WebDriver driver) {
 		super(driver);
 		
 	}

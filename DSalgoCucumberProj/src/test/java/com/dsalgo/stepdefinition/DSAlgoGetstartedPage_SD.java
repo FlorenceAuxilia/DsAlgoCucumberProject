@@ -1,9 +1,10 @@
-package ds_stepdefinition;
+package com.dsalgo.stepdefinition;
 
 import org.junit.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import ds_pom.main;
+import com.dsalgo.pom.DSAlgoGetStartedPom;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -11,7 +12,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class main_stepdefinition extends common_definition{
+public class DSAlgoGetstartedPage_SD extends DSAlgoCommon_SD{
 	
 	
 	@Before("@main")
@@ -20,7 +21,7 @@ public class main_stepdefinition extends common_definition{
 	
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
-	    mp=new main(driver);
+	    mp=new DSAlgoGetStartedPom(driver);
 	    driver.get("https://dsportalapp.herokuapp.com/");
 	}
 

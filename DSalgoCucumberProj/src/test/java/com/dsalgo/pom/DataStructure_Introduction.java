@@ -1,11 +1,11 @@
-package ds_pom;
+package com.dsalgo.pom;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DataStructure_Introduction extends common  {
+public class DataStructure_Introduction extends DSAlgoCommonPom  {
 	
 	public DataStructure_Introduction(WebDriver driver) {
 		super(driver);

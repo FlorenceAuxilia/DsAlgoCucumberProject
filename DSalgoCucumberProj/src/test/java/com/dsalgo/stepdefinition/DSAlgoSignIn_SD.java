@@ -1,28 +1,29 @@
-package ds_stepdefinition;
+package com.dsalgo.stepdefinition;
 
 import org.junit.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import ds_pom.home;
-import ds_pom.main;
-import ds_pom.sign;
+import com.dsalgo.pom.DSAlgoHomePom;
+import com.dsalgo.pom.DSAlgoGetStartedPom;
+import com.dsalgo.pom.DSAlgoSignInPom;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class sign_stepdefinition extends common_definition{
+public class DSAlgoSignIn_SD extends DSAlgoCommon_SD{
 
 	@Given("User is on signin page url")
 	public void user_is_on_signin_page_url() {
 		
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
-	    mp=new main(driver);
+	    mp=new DSAlgoGetStartedPom(driver);
 	    driver.get("https://dsportalapp.herokuapp.com/");
 	    mp.clickGetStarted();
-	    hp=new home(driver);
+	    hp=new DSAlgoHomePom(driver);
 	    hp.click_Signin();   
-	    sp=new sign(driver);
+	    sp=new DSAlgoSignInPom(driver);
 	}
 	
 	@When("User enters valid username {string} into username field")
