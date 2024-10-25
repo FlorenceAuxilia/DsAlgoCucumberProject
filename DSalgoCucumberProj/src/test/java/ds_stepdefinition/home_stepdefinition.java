@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import ds_pom.home;
 import ds_pom.main;
-import ds_pom.sign;
+import ds_pom.DsAlgoLoginPage;
 import ds_pom.stack;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -18,32 +18,32 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class home_stepdefinition extends common_definition{
+public class home_stepdefinition extends DsAlgoBaseSteps{
 
 	
 Actions act;
 	
 	@Before("@Home_sucesslogin")
-	public void setUP()
-	{
-		driver=new ChromeDriver();
-		
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	    act=new Actions(driver);
-	    mp=new main(driver);
-	    driver.get("https://dsportalapp.herokuapp.com/");
-	    mp.clickGetStarted();
-	    hp=new home(driver);
-	    hp.click_Signin();   
-	    sp=new sign(driver);
-	    sp.setUserName("ninja4");
-	    sp.setPassword("Tiger123@");
-	    sp.clickLogin();
-	    st=new stack(driver);
-	   
-	}
-	
+//	public void setUP()
+//	{
+//		driver=new ChromeDriver();
+//		
+//		driver.manage().window().maximize();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//	    act=new Actions(driver);
+//	    mp=new main(driver);
+//	    driver.get("https://dsportalapp.herokuapp.com/");
+//	    mp.clickGetStarted();
+//	    hp=new home(driver);
+//	    hp.click_Signin();   
+//	    sp=new DsAlgoLoginPage(driver);
+//	    sp.setUserName("ninja4");
+//	    sp.setPassword("Tiger123@");
+//	    sp.clickLogin();
+//	    st=new stack(driver);
+//	   
+//	}
+//	
 	
 	@Given("The user enters home page")
 	public void the_user_enters_home_page() {

@@ -9,35 +9,35 @@ import org.openqa.selenium.interactions.Actions;
 import ds_pom.DataStructure_Introduction;
 import ds_pom.home;
 import ds_pom.main;
-import ds_pom.sign;
+import ds_pom.DsAlgoLoginPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class test extends common_definition {
+public class test extends DsAlgoBaseSteps {
 	Actions act;	
 	
-	@Before("@Data")
-	public void setUP()
-	{
-		driver=new ChromeDriver();
-		
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	    act=new Actions(driver);
-	    mp=new main(driver);
-	    driver.get("https://dsportalapp.herokuapp.com/");
-	    mp.clickGetStarted();
-	    hp=new home(driver);
-	    hp.click_Signin();   
-	    sp=new sign(driver);
-	    sp.setUserName("ninja4");
-	    sp.setPassword("Tiger123@");
-	    sp.clickLogin();
-	   ds=new DataStructure_Introduction(driver);
-	   
-	}
+//	@Before("@Data")
+//	public void setUP()
+//	{
+//		driver=new ChromeDriver();
+//		
+//		driver.manage().window().maximize();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//	    act=new Actions(driver);
+//	    mp=new main(driver);
+//	    driver.get("https://dsportalapp.herokuapp.com/");
+//	    mp.clickGetStarted();
+//	    hp=new home(driver);
+//	    hp.click_Signin();   
+//	    sp=new DsAlgoLoginPage(driver);
+//	    sp.setUserName("ninja4");
+//	    sp.setPassword("Tiger123@");
+//	    sp.clickLogin();
+//	   ds=new DataStructure_Introduction(driver);
+//	   
+//	}
 	
 	@When("The user clicks  Data Structures-Introduction panel")
 	public void the_user_clicks_the_getting_started_button_in_data_structures_introduction_panel() {

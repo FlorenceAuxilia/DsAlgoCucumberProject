@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class main extends common{
+public class main extends DsAlgoBasePage{
 	public main(WebDriver driver) {
 		super(driver);
 		

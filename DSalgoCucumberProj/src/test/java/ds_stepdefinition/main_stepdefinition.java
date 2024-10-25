@@ -11,7 +11,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class main_stepdefinition extends common_definition{
+public class main_stepdefinition extends DsAlgoBaseSteps{
 	
 	
 	@Before("@main")

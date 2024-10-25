@@ -11,36 +11,36 @@ import org.openqa.selenium.support.FindBy;
 import ds_pom.DataStructure_Introduction;
 import ds_pom.home;
 import ds_pom.main;
-import ds_pom.sign;
+import ds_pom.DsAlgoLoginPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class datastructure_stepdefinition extends common_definition {
+public class datastructure_stepdefinition extends DsAlgoBaseSteps {
 Actions act;
 	
-	@Before("@DataStructure")
-	public void setUP()
-	{
-		driver=new ChromeDriver();
-		
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	    act=new Actions(driver);
-	    mp=new main(driver);
-	    driver.get("https://dsportalapp.herokuapp.com/");
-	    mp.clickGetStarted();
-	    hp=new home(driver);
-	    hp.click_Signin();   
-	    sp=new sign(driver);
-	    sp.setUserName("ninja4");
-	    sp.setPassword("Tiger123@");
-	    sp.clickLogin();
-	   ds=new DataStructure_Introduction(driver);
-	   
-	}
+//	@Before("@DataStructure")
+//	public void setUP()
+//	{
+//		driver=new ChromeDriver();
+//		
+//		driver.manage().window().maximize();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//	    act=new Actions(driver);
+//	    mp=new main(driver);
+//	    driver.get("https://dsportalapp.herokuapp.com/");
+//	    mp.clickGetStarted();
+//	    hp=new home(driver);
+//	    hp.click_Signin();   
+//	    sp=new DsAlgoLoginPage(driver);
+//	    sp.setUserName("ninja4");
+//	    sp.setPassword("Tiger123@");
+//	    sp.clickLogin();
+//	   ds=new DataStructure_Introduction(driver);
+//	   
+//	}
 	@Given ("The user is in home page after login")
 	public void the_user_is_in_home_page_after_login()
 	{
