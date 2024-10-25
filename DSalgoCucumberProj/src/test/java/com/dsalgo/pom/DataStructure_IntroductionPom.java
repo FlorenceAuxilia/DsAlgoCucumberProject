@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DataStructure_Introduction extends DSAlgoCommonPom  {
+public class DataStructure_IntroductionPom extends DSAlgoCommonPom  {
 	
-	public DataStructure_Introduction(WebDriver driver) {
+	public DataStructure_IntroductionPom(WebDriver driver) {
 		super(driver);
 		
 	}

@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import com.dsalgo.pom.DataStructure_Introduction;
+import com.dsalgo.pom.DataStructure_IntroductionPom;
 import com.dsalgo.pom.DSAlgoHomePom;
 import com.dsalgo.pom.DSAlgoGetStartedPom;
 import com.dsalgo.pom.DSAlgoSignInPom;
@@ -39,7 +39,7 @@ Actions act;
 	    sp.setUserName("ninja4");
 	    sp.setPassword("Tiger123@");
 	    sp.clickLogin();
-	   ds=new DataStructure_Introduction(driver);
+	   ds=new DataStructure_IntroductionPom(driver);
 	   
 	}
 	@Given ("The user is in home page after login")

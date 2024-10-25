@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-import com.dsalgo.pom.DataStructure_Introduction;
+import com.dsalgo.pom.DataStructure_IntroductionPom;
 import com.dsalgo.pom.DSAlgoHomePom;
 import com.dsalgo.pom.DSAlgoGetStartedPom;
 import com.dsalgo.pom.DSAlgoSignInPom;
@@ -36,7 +36,7 @@ public class test extends DSAlgoCommon_SD {
 	    sp.setUserName("ninja4");
 	    sp.setPassword("Tiger123@");
 	    sp.clickLogin();
-	   ds=new DataStructure_Introduction(driver);
+	   ds=new DataStructure_IntroductionPom(driver);
 	   
 	}
 	

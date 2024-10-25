@@ -34,8 +34,8 @@ public class DSAlgoGetstartedPage_SD extends DSAlgoCommon_SD{
 	}
 	
 	@Then("The user should landed on the page there should be a message {string}")
-	public void the_user_should_landed_on_the_page_there_should_be_a_message(String msg) {
-	    if(driver.getPageSource().contains(msg))
+	public void the_user_should_landed_on_the_page_there_should_be_a_message(String string) {
+	    if(driver.getPageSource().contains(string))
 	    	
 	    {
 	    	Assert.assertTrue(true);

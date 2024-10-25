@@ -2,7 +2,7 @@ package com.dsalgo.stepdefinition;
 
 import org.openqa.selenium.WebDriver;
 
-import com.dsalgo.pom.DataStructure_Introduction;
+import com.dsalgo.pom.DataStructure_IntroductionPom;
 import com.dsalgo.pom.DSAlgoHomePom;
 import com.dsalgo.pom.DSAlgoGetStartedPom;
 import com.dsalgo.pom.DSAlgoSignInPom;
@@ -15,6 +15,6 @@ public class DSAlgoCommon_SD {
 	public DSAlgoSignInPom sp;
 	public DSAlgoHomePom hp;
 	public DSAlgoStackPom st;
-	public DataStructure_Introduction ds;
+	public DataStructure_IntroductionPom ds;
 	
 }
