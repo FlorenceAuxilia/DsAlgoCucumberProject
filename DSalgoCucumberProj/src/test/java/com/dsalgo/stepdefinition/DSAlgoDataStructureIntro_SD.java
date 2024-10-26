@@ -1,4 +1,4 @@
-package ds_stepdefinition;
+package com.dsalgo.stepdefinition;
 
 import java.time.Duration;
 
@@ -8,17 +8,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import ds_pom.DataStructure_Introduction;
-import ds_pom.home;
-import ds_pom.main;
-import ds_pom.sign;
+import com.dsalgo.pom.DataStructure_IntroductionPom;
+import com.dsalgo.pom.DSAlgoHomePom;
+import com.dsalgo.pom.DSAlgoGetStartedPom;
+import com.dsalgo.pom.DSAlgoSignInPom;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class datastructure_stepdefinition extends common_definition {
+public class DSAlgoDataStructureIntro_SD extends DSAlgoCommon_SD {
 Actions act;
 	
 	@Before("@DataStructure")
@@ -29,16 +30,16 @@ Actions act;
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	    act=new Actions(driver);
-	    mp=new main(driver);
+	    mp=new DSAlgoGetStartedPom(driver);
 	    driver.get("https://dsportalapp.herokuapp.com/");
 	    mp.clickGetStarted();
-	    hp=new home(driver);
+	    hp=new DSAlgoHomePom(driver);
 	    hp.click_Signin();   
-	    sp=new sign(driver);
+	    sp=new DSAlgoSignInPom(driver);
 	    sp.setUserName("ninja4");
 	    sp.setPassword("Tiger123@");
 	    sp.clickLogin();
-	   ds=new DataStructure_Introduction(driver);
+	   ds=new DataStructure_IntroductionPom(driver);
 	   
 	}
 	@Given ("The user is in home page after login")

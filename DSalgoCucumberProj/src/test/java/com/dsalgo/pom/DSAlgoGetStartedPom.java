@@ -1,11 +1,11 @@
-package ds_pom;
+package com.dsalgo.pom;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class main extends common{
-	public main(WebDriver driver) {
+public class DSAlgoGetStartedPom extends DSAlgoCommonPom{
+	public DSAlgoGetStartedPom(WebDriver driver) {
 		super(driver);
 		
 	}
