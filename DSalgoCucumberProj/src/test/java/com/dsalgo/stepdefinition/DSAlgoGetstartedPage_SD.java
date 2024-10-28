@@ -21,7 +21,7 @@ public class DSAlgoGetstartedPage_SD extends DSAlgoCommon_SD{
 	
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
-	    mp=new DSAlgoGetStartedPom(driver);
+		getstartedpage_obj=new DSAlgoGetStartedPom(driver);
 	    driver.get("https://dsportalapp.herokuapp.com/");
 	}
 
@@ -49,7 +49,7 @@ public class DSAlgoGetstartedPage_SD extends DSAlgoCommon_SD{
 	@Then("The user clicks the get started button")
 	public void the_user_clicks_the_get_started_button() {
 	  
-		mp.clickGetStarted();
+		getstartedpage_obj.clickGetStarted();
 	}
 
 	@Then("The user should land in Home Page with {string} and {string} links")
