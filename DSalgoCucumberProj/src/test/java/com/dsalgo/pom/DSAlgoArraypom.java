@@ -4,10 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class DSAlgoArraypom {
-	WebDriver driver1;
+	WebDriver driver;
 	public DSAlgoArraypom (WebDriver driver)
 	{
-		this.driver1 =driver;
+		this.driver =driver;
 		PageFactory.initElements(driver, this);
 	}
 
