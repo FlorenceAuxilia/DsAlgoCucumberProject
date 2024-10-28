@@ -1,4 +1,4 @@
-/package com.dsalgo.pom;
+package com.dsalgo.pom;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
