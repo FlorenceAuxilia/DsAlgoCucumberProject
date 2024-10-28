@@ -11,10 +11,10 @@ import com.dsalgo.pom.DSAlgoStackPom;
 public class DSAlgoCommon_SD {
 
 	public WebDriver driver;
-	public DSAlgoGetStartedPom mp;
-	public DSAlgoSignInPom sp;
-	public DSAlgoHomePom hp;
-	public DSAlgoStackPom st;
-	public DataStructure_IntroductionPom ds;
+	public DSAlgoGetStartedPom getstartedpage_obj;
+	public DSAlgoSignInPom signinpage_obj;
+	public DSAlgoHomePom homepage_obj;
+	public DSAlgoStackPom stakpage_obj;
+	public DataStructure_IntroductionPom datastructurepage_obj;
 	
 }
