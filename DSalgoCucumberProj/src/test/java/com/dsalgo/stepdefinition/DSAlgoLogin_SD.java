@@ -1,8 +1,9 @@
 package com.dsalgo.stepdefinition;
 
 
-import org.junit.Assert;
+
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import com.dsalgo.pom.DSAlgoLoginPom;
 
@@ -19,7 +20,7 @@ public class DSAlgoLogin_SD extends DSAlgoCommon_SD{
 	String registrationPageTitile="Registration";
 
 
-	@Before
+	@Before("@login")
 	public void preCondition () {
 		driver= new ChromeDriver();
 		driver.get("https://dsportalapp.herokuapp.com/");
@@ -27,7 +28,7 @@ public class DSAlgoLogin_SD extends DSAlgoCommon_SD{
 
 	}
 
-	@After
+	@After("@login")
 	public void postCondition()
 	{
 		driver.close();
