@@ -4,10 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
-import junit.framework.Assert;
 
-public class DSAlgoLoginPom {
+
+public class DSAlgoLoginPom extends DSAlgoCommonPom{
 	
 static WebDriver driver;
 	
@@ -28,7 +29,8 @@ static WebDriver driver;
 	
 	
 	public DSAlgoLoginPom(WebDriver driver){
-		this.driver=driver;
+		//this.driver=driver;
+		super(driver);
 		}
 	
 	
