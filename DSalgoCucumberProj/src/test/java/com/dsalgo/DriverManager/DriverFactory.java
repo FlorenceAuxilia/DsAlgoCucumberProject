@@ -30,8 +30,6 @@ public class DriverFactory {
 	public static ChromeOptions co = new ChromeOptions();
 	public static EdgeOptions eo=new EdgeOptions();
 	
-
-	
 	public static void launchBrowser(String browser)
 	{
 		try {
@@ -75,8 +73,4 @@ public class DriverFactory {
 		//System.out.println("I am insidegetdrivermethod");
 		return driver.get();
 	}
-	
-	
-	
-
 }
