@@ -1,16 +1,20 @@
 package com.dsalgo.stepdefinition;
 
+import java.sql.DriverManager;
 import java.time.Duration;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import com.dsalgo.DriverManager.DriverFactory;
+import com.dsalgo.pom.DSAlgoCommonPom;
 import com.dsalgo.pom.DSAlgoGetStartedPom;
 import com.dsalgo.pom.DSAlgoHomePom;
-import com.dsalgo.pom.DSAlgoLoginPom;
 import com.dsalgo.pom.DSAlgoQueuePom;
 import com.dsalgo.pom.DSAlgoSignInPom;
+import com.dsalgo.utility.ConfigReader;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -18,25 +22,41 @@ import io.cucumber.java.en.*;
 
 public class DSAlgoQueue_SD extends DSAlgoCommon_SD{
 	
-
+	
+	WebDriver driver;
+	ConfigReader config =new ConfigReader();
 	Actions act;
 	
+	
 	@Before ("@queue")
-	public void setUP()
+	public void setUP() throws Throwable
 	{
-		driver=new ChromeDriver();
+		config.loadProperties();
+		String browser=config.getBrowserType();
+		DriverFactory.launchBrowser(browser);
+		ConfigReader.initElements();
 
-	    driver.manage().window().maximize();
+		driver=DriverFactory.getDriver();
+		//DriverFactory.getDriver().get("https://dsportalapp.herokuapp.com/");
+		//driver=new ChromeDriver();
+		
+	   //driver.manage().window().maximize();
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	    act=new Actions(driver);
-	    getstartedpage_obj=new DSAlgoGetStartedPom(driver);
-	    driver.get("https://dsportalapp.herokuapp.com/");
+	    getstartedpage_obj=new DSAlgoGetStartedPom(DriverFactory.getDriver());
+	    driver.get(config.getUrl());
 	    getstartedpage_obj.clickGetStarted();
 	    homepage_obj=new DSAlgoHomePom(driver);
 	    homepage_obj.click_Signin();   
 	    signinpage_obj=new DSAlgoSignInPom(driver);
-	    signinpage_obj.setUserName("ninja4");
-	    signinpage_obj.setPassword("Tiger123@");
+	    signinpage_obj.setUserName(config.getUsername());
+	    //signinpage_obj.setUserName(DsAlgoCommonPom.USERNAME);
+	    //System.out.println("USername +++"+config.getUsername());
+	   // System.out.println("Password +++"+config.getPassword());
+	   // System.out.println("url +++"+config.getUrl());
+	    signinpage_obj.setPassword(config.getPassword());
 	    signinpage_obj.clickLogin();
 	    queuepage_obj = new DSAlgoQueuePom(driver);
 	   

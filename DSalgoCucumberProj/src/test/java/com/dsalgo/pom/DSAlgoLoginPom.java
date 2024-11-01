@@ -10,7 +10,11 @@ import org.testng.Assert;
 
 public class DSAlgoLoginPom extends DSAlgoCommonPom{
 	
-static WebDriver driver;
+//static WebDriver driver;
+
+public DSAlgoLoginPom(WebDriver driver){
+	super(driver);
+}
 	
 	By username=By.id("id_username");
 	By password=By.id("id_password");
@@ -28,10 +32,10 @@ static WebDriver driver;
 	WebElement alert_Error;
 	
 	
-	public DSAlgoLoginPom(WebDriver driver){
-		//this.driver=driver;
-		super(driver);
-		}
+//	public DSAlgoLoginPom(WebDriver driver){
+//		//this.driver=driver;
+//		super(driver);
+//		}
 	
 	
 	

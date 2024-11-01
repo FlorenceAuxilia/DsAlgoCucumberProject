@@ -2,10 +2,18 @@ package com.dsalgo.stepdefinition;
 
 
 
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+import com.dsalgo.DriverManager.DriverFactory;
+import com.dsalgo.pom.DSAlgoGetStartedPom;
+import com.dsalgo.pom.DSAlgoHomePom;
 import com.dsalgo.pom.DSAlgoLoginPom;
+import com.dsalgo.pom.DSAlgoSignInPom;
+import com.dsalgo.utility.ConfigReader;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -18,14 +26,30 @@ public class DSAlgoLogin_SD extends DSAlgoCommon_SD{
 	String homepageTitle="NumpyNinja";
 	String loginpageTitle="Login";
 	String registrationPageTitile="Registration";
-
+	WebDriver driver;
+	ConfigReader config =new ConfigReader();
 
 	@Before("@login")
-	public void preCondition () {
-		driver= new ChromeDriver();
-		driver.get("https://dsportalapp.herokuapp.com/");
+	public void preCondition () throws Throwable {
+		
+		
+//		//driver= new ChromeDriver();
+//		driver.get("https://dsportalapp.herokuapp.com/");
+//		driver.manage().window().maximize();
+		config.loadProperties();
+		String browser=config.getBrowserType();
+		DriverFactory.launchBrowser(browser);
+		ConfigReader.initElements();
+		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
-
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+	    getstartedpage_obj=new DSAlgoGetStartedPom(DriverFactory.getDriver());
+	    driver.get(config.getUrl());
+//	    getstartedpage_obj.clickGetStarted();
+//	    homepage_obj=new DSAlgoHomePom(driver);
+//	    homepage_obj.click_Signin();   
+//	    signinpage_obj=new DSAlgoSignInPom(driver);
 	}
 
 	@After("@login")
