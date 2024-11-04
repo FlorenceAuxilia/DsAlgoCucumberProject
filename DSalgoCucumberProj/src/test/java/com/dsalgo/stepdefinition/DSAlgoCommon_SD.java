@@ -8,7 +8,10 @@ import com.dsalgo.pom.DSAlgoLoginPom;
 import com.dsalgo.pom.DSAlgoQueuePom;
 import com.dsalgo.pom.DSAlgoSignInPom;
 import com.dsalgo.pom.DSAlgoStackPom;
+import com.dsalgo.pom.DSAlgoTreePom;
 import com.dsalgo.pom.DataStructure_IntroductionPom;
+
+import io.cucumber.java.en.When;
 
 
 
@@ -23,6 +26,11 @@ public class DSAlgoCommon_SD {
 	public DSAlgoStackPom stakpage_obj;
 	public DSAlgoQueuePom queuepage_obj;
 	public DataStructure_IntroductionPom datastructurepage_obj;
+	public DSAlgoTreePom treePage_obj;
 	
+	
+	
+	
+
 	
 }
