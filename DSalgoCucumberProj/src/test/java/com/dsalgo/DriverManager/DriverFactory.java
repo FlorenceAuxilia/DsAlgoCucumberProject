@@ -1,3 +1,4 @@
+
 package com.dsalgo.DriverManager;
 
 import java.time.Duration;
@@ -29,10 +30,6 @@ public class DriverFactory {
 	public static ChromeOptions co = new ChromeOptions();
 	public static EdgeOptions eo=new EdgeOptions();
 	
-	
-	
-
-	@BeforeTest
 	public static void launchBrowser(String browser)
 	{
 		try {
@@ -76,12 +73,4 @@ public class DriverFactory {
 		//System.out.println("I am insidegetdrivermethod");
 		return driver.get();
 	}
-	
-	@AfterTest
-	public void  CloseBrowser() {
-		//System.out.println("I am CloseBrowser");
-		 driver.get().close();
-		 driver.remove();
-	}
-
 }

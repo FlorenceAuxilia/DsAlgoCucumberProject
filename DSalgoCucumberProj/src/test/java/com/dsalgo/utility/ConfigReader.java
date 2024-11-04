@@ -9,9 +9,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import com.dsalgo.DriverManager.DriverFactory;
-
 import com.dsalgo.pom.DSAlgoCommonPom;
+import com.dsalgo.stepdefinition.DSAlgoStack_SD;
 import com.dsalgo.stepdefinition.DSAlgoQueue_SD;
+
 
 public class ConfigReader {
 	public static final Logger LOGGER = LogManager.getLogger(ConfigReader.class);
@@ -87,9 +88,9 @@ public class ConfigReader {
 			String browser=properties.getProperty("browser");
 			System.out.println("Browser "+browser);
 			LOGGER.info ("get Property Browser");
-			driverfactory = new DriverFactory();
-			driverfactory.launchBrowser(browser);
-			driver=driverfactory.getDriver();
+			//driverfactory = new DriverFactory();
+			//driverfactory.launchBrowser(browser);
+			//driver=driverfactory.getDriver();
 			LOGGER.info ("initializeDrivers for " + browser);
 			DSAlgoCommonPom.BROWSER=properties.getProperty("browser"); // set values of browser from cross browser test runner
 			DSAlgoCommonPom.APP_URL=properties.getProperty("appURL");
@@ -123,9 +124,9 @@ public class ConfigReader {
 			String browser1=properties.getProperty("browser");
 			System.out.println("Browser "+browser1);
 			LOGGER.info ("get Property Browser");
-			driverfactory = new DriverFactory();
-			driverfactory.launchBrowser(browser);
-			driver=driverfactory.getDriver();
+			//driverfactory = new DriverFactory();
+			//driverfactory.launchBrowser(browser);
+			//driver=driverfactory.getDriver();
 			LOGGER.info ("initializeDrivers for " + browser1);
 			DSAlgoCommonPom.BROWSER=properties.getProperty("browser"); // set values of browser from cross browser test runner
 			DSAlgoCommonPom.APP_URL=properties.getProperty("appURL");
@@ -152,7 +153,8 @@ public class ConfigReader {
 	}
 	
 	public static void initElements() {
-		PageFactory.initElements(DriverFactory.getDriver(), DSAlgoQueue_SD.class);
-	}
+
+		PageFactory.initElements(DriverFactory.getDriver(), DSAlgoStack_SD.class);
+}
 
 }

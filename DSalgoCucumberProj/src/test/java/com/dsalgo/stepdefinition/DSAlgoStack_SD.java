@@ -7,13 +7,16 @@ import java.util.Map;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import com.dsalgo.pom.DSAlgoHomePom;
+import com.dsalgo.DriverManager.DriverFactory;
 import com.dsalgo.pom.DSAlgoGetStartedPom;
 import com.dsalgo.pom.DSAlgoSignInPom;
 import com.dsalgo.pom.DSAlgoStackPom;
+import com.dsalgo.utility.ConfigReader;
 import com.dsalgo.utility.ExcelReader;
 
 import io.cucumber.java.After;
@@ -26,26 +29,26 @@ import io.cucumber.java.en.When;
 public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 	
 	
+	ConfigReader config =new ConfigReader();
+	WebDriver driver;
 	Actions act;
-	
 	@Before("@test")
-	public void setUP()
+	public void setUP() throws Throwable
 	{
-		driver=new ChromeDriver();
-		
+		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	    act=new Actions(driver);
-	    getstartedpage_obj=new DSAlgoGetStartedPom(driver);
-	    driver.get("https://dsportalapp.herokuapp.com/");
+		driver.get(config.getUrl());
+		act=new Actions(driver);
+		getstartedpage_obj=new DSAlgoGetStartedPom(DriverFactory.getDriver());
 	    getstartedpage_obj.clickGetStarted();
-	    homepage_obj=new DSAlgoHomePom(driver);
-	    homepage_obj.click_Signin();   
-	    signinpage_obj=new DSAlgoSignInPom(driver);
-	    signinpage_obj.setUserName("ninja4");
-	    signinpage_obj.setPassword("Tiger123@");
-	    signinpage_obj.clickLogin();
-	    stakpage_obj=new DSAlgoStackPom(driver);
+		homepage_obj=new DSAlgoHomePom(DriverFactory.getDriver());
+		homepage_obj.click_Signin();   
+		signinpage_obj=new DSAlgoSignInPom(DriverFactory.getDriver());
+		signinpage_obj.setUserName(config.getUsername());
+		signinpage_obj.setPassword(config.getPassword());
+		signinpage_obj.clickLogin();
+	    stakpage_obj=new DSAlgoStackPom(DriverFactory.getDriver());
 	   
 	}
 	
@@ -159,10 +162,7 @@ public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 		 Assert.assertEquals(stakpage_obj.get_implementation_title(),title1);
 	}
 	
-	@After("@test")
-	public void tearDown() {
-	    driver.close();
-	}
+	
 
 //Applications	
 	@When("The user clicks Applications link")
