@@ -36,8 +36,8 @@ Examples:
  Scenario Outline:Tree page practice Ques validation link land in correct page
     Given The user in the Tree page after logged in
     When The user clicks <link name> Link in treepage
-    And The user clicks "Practice Questions" Link
-    Then The Practice question page should be displayed
+    And The user clicks "Practice Questions" Link in treepage
+    Then The Practice question for tree page should be displayed
 	
 	Examples:
 	|link name|
