@@ -35,11 +35,11 @@ public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 	@Before("@test")
 	public void setUP() throws Throwable
 	{
+//setup		
 		config.loadProperties();
 		String browser=config.getBrowserType();
 		DriverFactory.launchBrowser(browser);
 		ConfigReader.initElements();
-
 		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
