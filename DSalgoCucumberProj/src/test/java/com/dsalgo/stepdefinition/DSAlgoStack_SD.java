@@ -31,7 +31,7 @@ public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 	
 	ConfigReader config =new ConfigReader();
 	WebDriver driver;
-	Actions act;
+	Actions act; 
 	@Before("@test")
 	public void setUP() throws Throwable
 	{
