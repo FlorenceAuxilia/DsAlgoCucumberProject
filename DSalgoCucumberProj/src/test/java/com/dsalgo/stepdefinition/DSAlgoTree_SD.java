@@ -53,7 +53,7 @@ public class DSAlgoTree_SD extends DSAlgoCommon_SD{
 	    signinpage_obj.setPassword(config.getPassword());
 	    signinpage_obj.clickLogin();
 	    treePage_obj = new DSAlgoTreePom(driver);
-	    
+	    queuepage_obj =new DSAlgoQueuePom(driver);
 	    
 	    }
 	
@@ -66,7 +66,7 @@ public void the_user_clicks_the_getting_started_button_in_tree_panel() {
 @Then("The user should be directed to Tree Page")
 public void the_user_should_be_directed_to_tree_page() throws InterruptedException {
 	Thread.sleep(2000);
-	System.out.println("Ttile is " +driver.getTitle());
+	System.out.println("Title is " +driver.getTitle());
 	if(driver.getTitle().equals(treepageTitle))
 	{
 		Assert.assertTrue(true);
@@ -86,13 +86,6 @@ public void the_user_should_be_directed_to_tree_page() throws InterruptedExcepti
 		}
 	}
 
-	
-	
-	
-	
-	
-	
-	
 	@Given("The user in the Tree page after logged in")
 	public void the_user_in_the_tree_page_after_logged_in() {
 		driver.navigate().to("https://dsportalapp.herokuapp.com/tree");
@@ -142,6 +135,16 @@ public void the_user_clicks_try_here_button( ) {
 @Then("The user is redirect to Tree page tryEditor page")
 public void the_user_redirect_to_try_editor_page() {
 	 Assert.assertEquals(treePage_obj.runButtonText(),"Run");
+}
+
+
+@Then("The Practice question for tree page should be displayed")
+public void the_practice_question_page_should_be_displayed() {
+	
+	if(driver.getTitle().equals("pracQuesTitle"))
+	{
+		Assert.assertTrue(false);
+	}
 }
 
 
