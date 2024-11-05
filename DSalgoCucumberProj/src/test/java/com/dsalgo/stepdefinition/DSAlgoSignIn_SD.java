@@ -1,25 +1,39 @@
 package com.dsalgo.stepdefinition;
 
+import java.time.Duration;
+
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import com.dsalgo.pom.DSAlgoHomePom;
+import com.dsalgo.DriverManager.DriverFactory;
 import com.dsalgo.pom.DSAlgoGetStartedPom;
 import com.dsalgo.pom.DSAlgoSignInPom;
+import com.dsalgo.utility.ConfigReader;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class DSAlgoSignIn_SD extends DSAlgoCommon_SD{
-
+	WebDriver driver;
+	ConfigReader config =new ConfigReader();
+	Actions act; 
 	@Given("User is on signin page url")
-	public void user_is_on_signin_page_url() {
+	public void user_is_on_signin_page_url() throws Throwable {
 		
-		driver=new ChromeDriver();
+		config.loadProperties();
+		String browser=config.getBrowserType();
+		DriverFactory.launchBrowser(browser);
+		ConfigReader.initElements();
+		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
-		getstartedpage_obj=new DSAlgoGetStartedPom(driver);
-	    driver.get("https://dsportalapp.herokuapp.com/");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	    act=new Actions(driver);
+	    getstartedpage_obj=new DSAlgoGetStartedPom(DriverFactory.getDriver());
+	    driver.get(config.getUrl());
 	    getstartedpage_obj.clickGetStarted();
 	    homepage_obj=new DSAlgoHomePom(driver);
 	    homepage_obj.click_Signin();   
