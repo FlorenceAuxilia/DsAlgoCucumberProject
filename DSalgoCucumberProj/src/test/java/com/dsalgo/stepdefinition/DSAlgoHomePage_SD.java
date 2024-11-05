@@ -4,14 +4,17 @@ import java.time.Duration;
 import java.util.List;
 
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import com.dsalgo.pom.DSAlgoHomePom;
+import com.dsalgo.DriverManager.DriverFactory;
 import com.dsalgo.pom.DSAlgoGetStartedPom;
 import com.dsalgo.pom.DSAlgoSignInPom;
 import com.dsalgo.pom.DSAlgoStackPom;
+import com.dsalgo.utility.ConfigReader;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -21,25 +24,29 @@ import io.cucumber.java.en.When;
 
 public class DSAlgoHomePage_SD extends DSAlgoCommon_SD{
 
-	
-Actions act;
-	
+	WebDriver driver;
+	ConfigReader config =new ConfigReader();
+	Actions act;	
 	@Before("@Home_sucesslogin")
-	public void setUP()
+	public void setUP() throws Throwable
 	{
-		driver=new ChromeDriver();
-		
+		config.loadProperties();
+		String browser=config.getBrowserType();
+		DriverFactory.launchBrowser(browser);
+		ConfigReader.initElements();
+
+		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	    act=new Actions(driver);
-	    getstartedpage_obj=new DSAlgoGetStartedPom(driver);
-	    driver.get("https://dsportalapp.herokuapp.com/");
+	    getstartedpage_obj=new DSAlgoGetStartedPom(DriverFactory.getDriver());
+	    driver.get(config.getUrl());
 	    getstartedpage_obj.clickGetStarted();
 	    homepage_obj=new DSAlgoHomePom(driver);
 	    homepage_obj.click_Signin();   
 	    signinpage_obj=new DSAlgoSignInPom(driver);
-	    signinpage_obj.setUserName("ninja4");
-	    signinpage_obj.setPassword("Tiger123@");
+	    signinpage_obj.setUserName(config.getUsername());
+	    signinpage_obj.setPassword(config.getPassword());
 	    signinpage_obj.clickLogin();
 	    stakpage_obj=new DSAlgoStackPom(driver);
 	   
@@ -133,15 +140,19 @@ Actions act;
 	}
 	
 	@Before("@Home_unsucesslogin")
-	public void setup()
+	public void setup() throws Throwable
 	{
-		driver=new ChromeDriver();
-		
+		config.loadProperties();
+		String browser=config.getBrowserType();
+		DriverFactory.launchBrowser(browser);
+		ConfigReader.initElements();
+
+		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	    act=new Actions(driver);
-	    getstartedpage_obj=new DSAlgoGetStartedPom(driver);
-	    driver.get("https://dsportalapp.herokuapp.com/");
+	    getstartedpage_obj=new DSAlgoGetStartedPom(DriverFactory.getDriver());
+	    driver.get(config.getUrl());
 	    getstartedpage_obj.clickGetStarted();
 	    homepage_obj=new DSAlgoHomePom(driver);
 	   

@@ -1,9 +1,14 @@
 package com.dsalgo.stepdefinition;
 
+import java.time.Duration;
+
 import org.junit.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
+import com.dsalgo.DriverManager.DriverFactory;
 import com.dsalgo.pom.DSAlgoGetStartedPom;
+import com.dsalgo.utility.ConfigReader;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -13,16 +18,23 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class DSAlgoGetstartedPage_SD extends DSAlgoCommon_SD{
-	
-	
+	ConfigReader config =new ConfigReader();
+	Actions act;
 	@Before("@main")
-	public void setUP() {
-		
+	public void setUP() throws Throwable {
+		config.loadProperties();
+		String browser=config.getBrowserType();
+		DriverFactory.launchBrowser(browser);
+		ConfigReader.initElements();
+
+		driver=DriverFactory.getDriver();
 	
-		driver=new ChromeDriver();
 		driver.manage().window().maximize();
-		getstartedpage_obj=new DSAlgoGetStartedPom(driver);
-	    driver.get("https://dsportalapp.herokuapp.com/");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	    act=new Actions(driver);
+	    getstartedpage_obj=new DSAlgoGetStartedPom(DriverFactory.getDriver());
+	    driver.get(config.getUrl());
 	}
 
 	@When("The user should be in GetStarted page")

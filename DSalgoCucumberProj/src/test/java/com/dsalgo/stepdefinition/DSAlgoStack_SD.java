@@ -28,9 +28,8 @@ import io.cucumber.java.en.When;
 
 public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 	
-	
-	ConfigReader config =new ConfigReader();
 	WebDriver driver;
+	ConfigReader config =new ConfigReader();
 	Actions act; 
 	@Before("@test")
 	public void setUP() throws Throwable
@@ -53,7 +52,7 @@ public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 	    signinpage_obj.setUserName(config.getUsername());
 	    signinpage_obj.setPassword(config.getPassword());
 	    signinpage_obj.clickLogin();
-	    stakpage_obj=new DSAlgoStackPom(DriverFactory.getDriver());
+	    stakpage_obj=new DSAlgoStackPom(driver);
 	   
 	}
 	
