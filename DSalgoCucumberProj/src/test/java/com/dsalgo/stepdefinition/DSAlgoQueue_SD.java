@@ -14,6 +14,7 @@ import com.dsalgo.pom.DSAlgoGetStartedPom;
 import com.dsalgo.pom.DSAlgoHomePom;
 import com.dsalgo.pom.DSAlgoQueuePom;
 import com.dsalgo.pom.DSAlgoSignInPom;
+import com.dsalgo.pom.DSAlgoTreePom;
 import com.dsalgo.utility.ConfigReader;
 
 import io.cucumber.java.After;
@@ -52,15 +53,16 @@ public class DSAlgoQueue_SD extends DSAlgoCommon_SD{
 	    homepage_obj.click_Signin();   
 	    signinpage_obj=new DSAlgoSignInPom(driver);
 	    signinpage_obj.setUserName(config.getUsername());
-	    //signinpage_obj.setUserName(DsAlgoCommonPom.USERNAME);
-	    //System.out.println("USername +++"+config.getUsername());
-	   // System.out.println("Password +++"+config.getPassword());
-	   // System.out.println("url +++"+config.getUrl());
 	    signinpage_obj.setPassword(config.getPassword());
 	    signinpage_obj.clickLogin();
+	    treePage_obj = new DSAlgoTreePom(driver);
 	    queuepage_obj = new DSAlgoQueuePom(driver);
 	   
 	}
+	
+	
+	
+
 	
 	String queuepageTitle="Queue";
 	String pracQuesTitle ="Practice Questions";
