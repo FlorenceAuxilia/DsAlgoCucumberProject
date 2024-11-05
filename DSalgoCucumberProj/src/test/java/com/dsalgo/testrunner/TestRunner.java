@@ -16,6 +16,7 @@ import io.cucumber.testng.CucumberOptions;
 		
 
 
+
 		features = { "src/test/resources/feature1"},//location of feature files
 		glue={"com.dsalgo.stepdefinition"} ,//location of step definition
 		plugin= {"pretty","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
