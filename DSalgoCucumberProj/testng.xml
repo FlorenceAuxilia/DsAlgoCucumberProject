@@ -2,7 +2,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
   
-  <test thread-count="5" name="DS Algo Test">
+ <test thread-count="5" name="DS Algo Test">
+ <parameter name="browsertype" value="firefox" />
     <classes>
       <class name="com.dsalgo.testrunner.TestRunner"/>
     </classes>

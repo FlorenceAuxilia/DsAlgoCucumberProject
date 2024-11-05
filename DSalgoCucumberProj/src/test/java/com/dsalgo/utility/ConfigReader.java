@@ -11,6 +11,8 @@ import org.openqa.selenium.support.PageFactory;
 import com.dsalgo.DriverManager.DriverFactory;
 import com.dsalgo.pom.DSAlgoCommonPom;
 import com.dsalgo.stepdefinition.DSAlgoStack_SD;
+import com.dsalgo.stepdefinition.DSAlgoQueue_SD;
+
 
 public class ConfigReader {
 	public static final Logger LOGGER = LogManager.getLogger(ConfigReader.class);
@@ -151,7 +153,7 @@ public class ConfigReader {
 	}
 	
 	public static void initElements() {
-		PageFactory.initElements(DriverFactory.getDriver(), DSAlgoStack_SD.class);
-	}
 
+		PageFactory.initElements(DriverFactory.getDriver(), DSAlgoStack_SD.class);
 }
+
