@@ -187,7 +187,13 @@ public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 	@Then("The user should redirect to Practice Questions page")
 	public void the_user_should_redirect_to_practice_questions_page() {
 	
-		Assert.assertTrue(true);
+		Assert.assertTrue(false);
 		
+	}
+	@After("@test")
+	public void teardown()
+	{
+		driver.close();
+	   
 	}
 }
