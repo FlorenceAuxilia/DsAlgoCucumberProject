@@ -31,23 +31,28 @@ public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 	
 	ConfigReader config =new ConfigReader();
 	WebDriver driver;
-	Actions act;
+	Actions act; 
 	@Before("@test")
 	public void setUP() throws Throwable
 	{
+//setup		
+		config.loadProperties();
+		String browser=config.getBrowserType();
+		DriverFactory.launchBrowser(browser);
+		ConfigReader.initElements();
 		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.get(config.getUrl());
-		act=new Actions(driver);
-		getstartedpage_obj=new DSAlgoGetStartedPom(DriverFactory.getDriver());
+	    act=new Actions(driver);
+	    getstartedpage_obj=new DSAlgoGetStartedPom(DriverFactory.getDriver());
+	    driver.get(config.getUrl());
 	    getstartedpage_obj.clickGetStarted();
-		homepage_obj=new DSAlgoHomePom(DriverFactory.getDriver());
-		homepage_obj.click_Signin();   
-		signinpage_obj=new DSAlgoSignInPom(DriverFactory.getDriver());
-		signinpage_obj.setUserName(config.getUsername());
-		signinpage_obj.setPassword(config.getPassword());
-		signinpage_obj.clickLogin();
+	    homepage_obj=new DSAlgoHomePom(driver);
+	    homepage_obj.click_Signin();   
+	    signinpage_obj=new DSAlgoSignInPom(driver);
+	    signinpage_obj.setUserName(config.getUsername());
+	    signinpage_obj.setPassword(config.getPassword());
+	    signinpage_obj.clickLogin();
 	    stakpage_obj=new DSAlgoStackPom(DriverFactory.getDriver());
 	   
 	}
