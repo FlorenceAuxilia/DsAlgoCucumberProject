@@ -25,7 +25,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class DriverFactory {
 	
 	public static   ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
-	public static WebDriver driver1;
+	//public static WebDriver driver1;
 	private static final Logger LOGGER = LogManager.getLogger(DriverFactory.class);
 	public static ChromeOptions co = new ChromeOptions();
 	public static EdgeOptions eo=new EdgeOptions();
