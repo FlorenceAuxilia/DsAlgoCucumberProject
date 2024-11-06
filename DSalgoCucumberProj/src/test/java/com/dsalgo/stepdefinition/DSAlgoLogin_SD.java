@@ -5,6 +5,7 @@ package com.dsalgo.stepdefinition;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
@@ -28,6 +29,7 @@ public class DSAlgoLogin_SD extends DSAlgoCommon_SD{
 	String registrationPageTitile="Registration";
 	WebDriver driver;
 	ConfigReader config =new ConfigReader();
+	String expectedMessage ="Please fill out this field";
 
 	@Before("@login")
 	public void preCondition () throws Throwable {
@@ -76,7 +78,15 @@ public class DSAlgoLogin_SD extends DSAlgoCommon_SD{
 		loginpage_obj.enterPassword(password);
 	}
 
-
+	@When("Enter the username")
+	public void enter_the_username() {
+		loginpage_obj.enterUsername("ninja4");
+	}
+	
+	@When("Enter the password")
+	public void enter_the_password() {
+		loginpage_obj.enterPassword("Tiger123");
+	}
 
 
 	@When("Click on Login")
@@ -134,7 +144,6 @@ public class DSAlgoLogin_SD extends DSAlgoCommon_SD{
 		}
 	}
 
-
 	@Then("Error Message should be displayed")
 	public void error_message_should_be_displayed() {
 		if(loginpage_obj.checkForErrorMessage())
@@ -144,6 +153,16 @@ public class DSAlgoLogin_SD extends DSAlgoCommon_SD{
 		else
 		{
 			Assert.assertTrue(false);
+		}
+	}
+	
+	
+	
+	@Then("Error popup should be displayed")
+	public void error_popup_should_be_displayed() {
+		if(loginpage_obj.checkForErrorpopup().equalsIgnoreCase(expectedMessage))
+		{
+			Assert.assertTrue(true);
 		}
 	}
 
