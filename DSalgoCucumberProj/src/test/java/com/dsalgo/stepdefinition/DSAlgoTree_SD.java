@@ -141,11 +141,12 @@ public void the_user_redirect_to_try_editor_page() {
 
 @Then("The Practice question for tree page should be displayed")
 public void the_practice_question_page_should_be_displayed() {
+	Assert.assertTrue(false);
 	
-	if(driver.getTitle().equals(pracQuesTitle))
-	{
-		Assert.assertTrue(false);
-	}
+//	if(driver.getTitle().equals(pracQuesTitle))
+//	{
+//		Assert.assertTrue(false);
+//	}
 }
 
 
