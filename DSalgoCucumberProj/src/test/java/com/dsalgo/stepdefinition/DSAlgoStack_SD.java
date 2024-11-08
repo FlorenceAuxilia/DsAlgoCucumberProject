@@ -7,13 +7,16 @@ import java.util.Map;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import com.dsalgo.pom.DSAlgoHomePom;
+import com.dsalgo.DriverManager.DriverFactory;
 import com.dsalgo.pom.DSAlgoGetStartedPom;
 import com.dsalgo.pom.DSAlgoSignInPom;
 import com.dsalgo.pom.DSAlgoStackPom;
+import com.dsalgo.utility.ConfigReader;
 import com.dsalgo.utility.ExcelReader;
 
 import io.cucumber.java.After;
@@ -25,25 +28,29 @@ import io.cucumber.java.en.When;
 
 public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 	
-	
-	Actions act;
-	
+	WebDriver driver;
+	ConfigReader config =new ConfigReader();
+	Actions act; 
 	@Before("@test")
-	public void setUP()
+	public void setUP() throws Throwable
 	{
-		driver=new ChromeDriver();
-		
+//setup		
+		config.loadProperties();
+		String browser=config.getBrowserType();
+		DriverFactory.launchBrowser(browser);
+		ConfigReader.initElements();
+		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	    act=new Actions(driver);
-	    getstartedpage_obj=new DSAlgoGetStartedPom(driver);
-	    driver.get("https://dsportalapp.herokuapp.com/");
+	    getstartedpage_obj=new DSAlgoGetStartedPom(DriverFactory.getDriver());
+	    driver.get(config.getUrl());
 	    getstartedpage_obj.clickGetStarted();
 	    homepage_obj=new DSAlgoHomePom(driver);
 	    homepage_obj.click_Signin();   
 	    signinpage_obj=new DSAlgoSignInPom(driver);
-	    signinpage_obj.setUserName("ninja4");
-	    signinpage_obj.setPassword("Tiger123@");
+	    signinpage_obj.setUserName(config.getUsername());
+	    signinpage_obj.setPassword(config.getPassword());
 	    signinpage_obj.clickLogin();
 	    stakpage_obj=new DSAlgoStackPom(driver);
 	   
@@ -159,10 +166,7 @@ public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 		 Assert.assertEquals(stakpage_obj.get_implementation_title(),title1);
 	}
 	
-	@After("@test")
-	public void tearDown() {
-	    driver.close();
-	}
+	
 
 //Applications	
 	@When("The user clicks Applications link")
@@ -183,7 +187,13 @@ public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 	@Then("The user should redirect to Practice Questions page")
 	public void the_user_should_redirect_to_practice_questions_page() {
 	
-		Assert.assertTrue(true);
+		Assert.assertTrue(false);
 		
+	}
+	@After("@test")
+	public void teardown()
+	{
+		driver.close();
+	   
 	}
 }

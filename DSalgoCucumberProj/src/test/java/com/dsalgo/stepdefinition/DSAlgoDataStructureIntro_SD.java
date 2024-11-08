@@ -7,11 +7,14 @@ import java.util.Map;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import com.dsalgo.pom.DataStructure_IntroductionPom;
+import com.dsalgo.utility.ConfigReader;
 import com.dsalgo.utility.ExcelReader;
 import com.dsalgo.pom.DSAlgoHomePom;
+import com.dsalgo.DriverManager.DriverFactory;
 import com.dsalgo.pom.DSAlgoGetStartedPom;
 import com.dsalgo.pom.DSAlgoSignInPom;
 
@@ -22,23 +25,29 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class DSAlgoDataStructureIntro_SD extends DSAlgoCommon_SD {
-Actions act;
+	ConfigReader config =new ConfigReader();
+	WebDriver driver;
+	Actions act; 
 	
 	@Before("@DataStructure")
-	public void setUP()
+	public void setUP() throws Throwable
 	{
-		driver=new ChromeDriver();
+		config.loadProperties();
+		String browser=config.getBrowserType();
+		DriverFactory.launchBrowser(browser);
+		ConfigReader.initElements();
+		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	    act=new Actions(driver);
-	    getstartedpage_obj=new DSAlgoGetStartedPom(driver);
-	    driver.get("https://dsportalapp.herokuapp.com/");
+	    getstartedpage_obj=new DSAlgoGetStartedPom(DriverFactory.getDriver());
+	    driver.get(config.getUrl());
 	    getstartedpage_obj.clickGetStarted();
 	    homepage_obj=new DSAlgoHomePom(driver);
 	    homepage_obj.click_Signin();   
 	    signinpage_obj=new DSAlgoSignInPom(driver);
-	    signinpage_obj.setUserName("ninja4");
-	    signinpage_obj.setPassword("Tiger123@");
+	    signinpage_obj.setUserName(config.getUsername());
+	    signinpage_obj.setPassword(config.getPassword());
 	    signinpage_obj.clickLogin();
 	    datastructurepage_obj=new DataStructure_IntroductionPom(driver);
 	   
