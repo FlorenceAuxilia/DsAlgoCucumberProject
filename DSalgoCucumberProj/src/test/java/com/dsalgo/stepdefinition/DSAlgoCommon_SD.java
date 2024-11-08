@@ -3,6 +3,7 @@ package com.dsalgo.stepdefinition;
 import org.openqa.selenium.WebDriver;
 
 import com.dsalgo.pom.DSAlgoGetStartedPom;
+import com.dsalgo.pom.DSAlgoGraphPom;
 import com.dsalgo.pom.DSAlgoHomePom;
 import com.dsalgo.pom.DSAlgoLoginPom;
 import com.dsalgo.pom.DSAlgoQueuePom;
@@ -27,6 +28,7 @@ public class DSAlgoCommon_SD {
 	public DSAlgoQueuePom queuepage_obj;
 	public DataStructure_IntroductionPom datastructurepage_obj;
 	public DSAlgoTreePom treePage_obj;
+	public DSAlgoGraphPom graphPage_obj;
 	
 	
 	
