@@ -38,10 +38,10 @@ public class DSAlgoLogin_SD extends DSAlgoCommon_SD{
 //		//driver= new ChromeDriver();
 //		driver.get("https://dsportalapp.herokuapp.com/");
 //		driver.manage().window().maximize();
-		config.loadProperties();
-		String browser=config.getBrowserType();
-		DriverFactory.launchBrowser(browser);
-		ConfigReader.initElements();
+		//config.loadProperties();
+		//String browser=config.getBrowserType();
+		//DriverFactory.launchBrowser(browser);
+		//ConfigReader.initElements();
 		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -54,11 +54,11 @@ public class DSAlgoLogin_SD extends DSAlgoCommon_SD{
 //	    signinpage_obj=new DSAlgoSignInPom(driver);
 	}
 
-	@After("@login")
-	public void postCondition()
-	{
-		driver.close();
-	}
+	//@After("@login")
+	//public void postCondition()
+	//{
+		//driver.close();
+	//}
 
 
 	@Given("The user is in login page")
