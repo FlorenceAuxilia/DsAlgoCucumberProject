@@ -30,10 +30,10 @@ public class DSAlgoHomePage_SD extends DSAlgoCommon_SD{
 	@Before("@Home_sucesslogin")
 	public void setUP() throws Throwable
 	{
-		config.loadProperties();
-		String browser=config.getBrowserType();
-		DriverFactory.launchBrowser(browser);
-		ConfigReader.initElements();
+		//config.loadProperties();
+		//String browser=config.getBrowserType();
+		//DriverFactory.launchBrowser(browser);
+		//ConfigReader.initElements();
 
 		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
@@ -134,18 +134,18 @@ public class DSAlgoHomePage_SD extends DSAlgoCommon_SD{
 		homepage_obj.click_select_Queue_options();
 	}
 	
-	@After("@Home_sucesslogin")
-	public void tearDown() {
-	    driver.close();
-	}
+	//@After("@Home_sucesslogin")
+	//public void tearDown() {
+	  //  driver.close();
+	//}
 	
 	@Before("@Home_unsucesslogin")
 	public void setup() throws Throwable
 	{
-		config.loadProperties();
-		String browser=config.getBrowserType();
-		DriverFactory.launchBrowser(browser);
-		ConfigReader.initElements();
+		//config.loadProperties();
+		//String browser=config.getBrowserType();
+		//DriverFactory.launchBrowser(browser);
+		//ConfigReader.initElements();
 
 		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
@@ -170,10 +170,10 @@ public class DSAlgoHomePage_SD extends DSAlgoCommon_SD{
 	    }
 
 	}
-	@After("@Home_unsucesslogin")
-	public void teardown() {
-	    driver.close();
-	}
+	//@After("@Home_unsucesslogin")
+	//public void teardown() {
+	   // driver.close();
+	//}
 	
 //datastructure dropdown
 	
