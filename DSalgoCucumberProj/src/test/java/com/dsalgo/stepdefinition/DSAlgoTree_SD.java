@@ -30,10 +30,10 @@ public class DSAlgoTree_SD extends DSAlgoCommon_SD{
 	@Before ("@tree")
 	public void setUP() throws Throwable
 	{
-		config.loadProperties();
-		String browser=config.getBrowserType();
-		DriverFactory.launchBrowser(browser);
-		ConfigReader.initElements();
+		//config.loadProperties();
+		//String browser=config.getBrowserType();
+		//DriverFactory.launchBrowser(browser);
+		//ConfigReader.initElements();
 
 		driver=DriverFactory.getDriver();
 		//DriverFactory.getDriver().get("https://dsportalapp.herokuapp.com/");
@@ -150,11 +150,11 @@ public void the_practice_question_page_should_be_displayed() {
 }
 
 
-@After ("@tree")
-public void teardown()
-{
-	driver.close();
+//@After ("@tree")
+//public void teardown()
+//{
+//	driver.close();
    
-}
+//}
 
 }
