@@ -38,10 +38,10 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 
 	@Before("@array")
 	public void setUP() throws Throwable {
-		config.loadProperties();
-		String browser = config.getBrowserType();
-		DriverFactory.launchBrowser(browser);
-		ConfigReader.initElements();
+		//config.loadProperties();
+		//String browser = config.getBrowserType();
+		//DriverFactory.launchBrowser(browser);
+		//ConfigReader.initElements();
 		driver = DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -59,11 +59,11 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 		arraypage_obj = new DSAlgoArraypom(driver);
 	}
 
-	@After("@array")
-	public void teardown() {
-		driver.close();
+	//@After("@array")
+	//public void teardown() {
+		//driver.close();
 
-	}
+	//}
 
 	String arrayPageTitle = "Array";
 	String pracQuesTitle = "Practice Questions";
