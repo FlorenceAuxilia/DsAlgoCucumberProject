@@ -40,10 +40,10 @@ public class DSAlgoRegister_SD extends DSAlgoCommon_SD {
 
 	@Before("@registration_successful")
 	public void setUP() throws Throwable {
-		config.loadProperties();
-		String browser = config.getBrowserType();
-		DriverFactory.launchBrowser(browser);
-		ConfigReader.initElements();
+		//config.loadProperties();
+		//String browser = config.getBrowserType();
+		//DriverFactory.launchBrowser(browser);
+		//ConfigReader.initElements();
 		driver = DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -241,9 +241,9 @@ public void the_user_clicks_register_button_after_entering_with_valid_and_and_in
 		}
 	}
 
-	@After
-	public void postCondition() {
-		driver.close();
-	}
+	//@After
+	//public void postCondition() {
+		//driver.close();
+	//}
 
 }
