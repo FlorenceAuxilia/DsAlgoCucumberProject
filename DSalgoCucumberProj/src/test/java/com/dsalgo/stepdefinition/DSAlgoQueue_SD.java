@@ -32,10 +32,10 @@ public class DSAlgoQueue_SD extends DSAlgoCommon_SD{
 	@Before ("@queue")
 	public void setUP() throws Throwable
 	{
-		config.loadProperties();
-		String browser=config.getBrowserType();
-		DriverFactory.launchBrowser(browser);
-		ConfigReader.initElements();
+		//config.loadProperties();
+		//String browser=config.getBrowserType();
+		//DriverFactory.launchBrowser(browser);
+		//ConfigReader.initElements();
 
 		driver=DriverFactory.getDriver();
 		//DriverFactory.getDriver().get("https://dsportalapp.herokuapp.com/");
@@ -198,12 +198,12 @@ public class DSAlgoQueue_SD extends DSAlgoCommon_SD{
 
 
 
-	@After ("@queue")
-	public void teardown()
-	{
-		driver.close();
+	//@After ("@queue")
+	//public void teardown()
+	//{
+		//driver.close();
 	   
-	}
+	//}
 
 
 
