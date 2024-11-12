@@ -32,10 +32,10 @@ public class DSAlgoDataStructureIntro_SD extends DSAlgoCommon_SD {
 	@Before("@DataStructure")
 	public void setUP() throws Throwable
 	{
-		config.loadProperties();
-		String browser=config.getBrowserType();
-		DriverFactory.launchBrowser(browser);
-		ConfigReader.initElements();
+		//config.loadProperties();
+		//String browser=config.getBrowserType();
+		//DriverFactory.launchBrowser(browser);
+		//ConfigReader.initElements();
 		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -142,8 +142,8 @@ public class DSAlgoDataStructureIntro_SD extends DSAlgoCommon_SD {
 		Assert.assertEquals(datastructurepage_obj.tc_text_output(),result);
 	}
 	
-	@After("@DataStructure")
-	public void tearDown() {
-	    driver.close();
-	}
+	//@After("@DataStructure")
+	//public void tearDown() {
+	 //   driver.close();
+	//}
 }
