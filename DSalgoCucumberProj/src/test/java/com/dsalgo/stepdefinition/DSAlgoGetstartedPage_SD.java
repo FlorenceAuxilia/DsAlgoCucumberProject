@@ -22,10 +22,10 @@ public class DSAlgoGetstartedPage_SD extends DSAlgoCommon_SD{
 	Actions act;
 	@Before("@main")
 	public void setUP() throws Throwable {
-		config.loadProperties();
-		String browser=config.getBrowserType();
-		DriverFactory.launchBrowser(browser);
-		ConfigReader.initElements();
+		//config.loadProperties();
+		//String browser=config.getBrowserType();
+		//DriverFactory.launchBrowser(browser);
+		//ConfigReader.initElements();
 
 		driver=DriverFactory.getDriver();
 	
@@ -77,11 +77,11 @@ public class DSAlgoGetstartedPage_SD extends DSAlgoCommon_SD{
 	    }
 	}
 
-	@After("@main")
-	public void tearDown()
-	{
-		driver.close();
-	}
+	//@After("@main")
+	//public void tearDown()
+	//{
+		//driver.close();
+	//}
 
 	
 	
