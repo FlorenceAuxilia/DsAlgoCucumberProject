@@ -36,10 +36,10 @@ String pracQuesTitle="Practice Questions";
 @Before ("@graph")
 public void setUP() throws Throwable
 {
-	config.loadProperties();
-	String browser=config.getBrowserType();
-	DriverFactory.launchBrowser(browser);
-	ConfigReader.initElements();
+	//config.loadProperties();
+	//String browser=config.getBrowserType();
+	//DriverFactory.launchBrowser(browser);
+	//ConfigReader.initElements();
 
 	driver=DriverFactory.getDriver();
 	//DriverFactory.getDriver().get("https://dsportalapp.herokuapp.com/");
@@ -182,12 +182,12 @@ public void the_user_clicks_run_button_invlid_scenario() {
 	   }
 }
 
-@After ("@graph")
-public void teardown()
-{
-	driver.close();
+//@After ("@graph")
+/public void teardown()
+//{
+	//driver.close();
    
-}
+//}
 
 }
 
