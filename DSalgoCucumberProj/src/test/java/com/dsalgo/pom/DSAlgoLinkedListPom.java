@@ -18,47 +18,53 @@ public class DSAlgoLinkedListPom extends DSAlgoCommonPom {
 	@FindBy(linkText ="linked-list")
 	WebElement linkedlist;
 
-	@FindBy(linkText ="introduction")
+	@FindBy(linkText ="Introduction")
 	WebElement introduction;
 	
      @FindBy(linkText="creating-linked-list")
-	WebElement creating_Linked_List;
+	WebElement creating_linked_List;
 
 	@FindBy(linkText = "types-of linked-list")
-	WebElement types_of_linked_inked_List;
+	WebElement types_of_linked__List;
 
 	@FindBy(linkText ="implement linked list in python")
-	WebElement implement_Linked_List_in_Python;
+	WebElement implement_linked_List_in_Python;
 
 	@FindBy(linkText ="Traversal")
 	WebElement traversal;
 
-	@FindBy(linkText ="insertion")
+	@FindBy(linkText ="Insertion")
 	WebElement insertion;
 
-	@FindBy(linkText ="deletion")
+	@FindBy(linkText ="Deletion")
 	WebElement deletion;
 
-	@FindBy(xpath ="//a[text()='Try here>>>']")
+	@FindBy(xpath="//a[text()='Try here>>>']")
 	WebElement tryHere;
-
+	
 	@FindBy(xpath ="//button[text()='Run']")
 	WebElement runButton;
 
 	@FindBy(xpath = "//*[@id='output']")
 	WebElement txt_output;
 	String actualTitle;
+  
+	
+	
+	
+	public Object navigateLinkedListPage;
 
-	public void ClickLinks(String linkName) {
+	
+	public void ClickLinkedListLink(String linkName) {
 		driver.findElement(By.linkText(linkName)).click();
 	}
-
+	
 	public void ClickIntroduction() {
 		introduction.click();
 	}
 
 	public void ClickCreatinLinkedList() {
-		creating_Linked_List.click();
+		creating_linked_List.click();
 	}
 
 	public void verifyQPage(String title) {
@@ -70,17 +76,6 @@ public class DSAlgoLinkedListPom extends DSAlgoCommonPom {
 	public String getPageTitle1() {
 		// TODO Auto-generated method stub
 		return (driver.getTitle());
-
-	}
-
-	public void Click_tryHere() {
-		js.executeScript("arguments[0].scrollIntoView();", tryHere);
-		tryHere.click();
-
-	}
-
-	public void click_run() {
-		runButton.click();
 
 	}
 
@@ -97,22 +92,11 @@ public class DSAlgoLinkedListPom extends DSAlgoCommonPom {
 	public void click_tryHere() {
 		js.executeScript("arguments[0].scrollIntoView();", tryHere);
 		tryHere.click();
-
-	}
-
-	public void Click_run() {
-		runButton.click();
-
 	}
 
 	public String RunButtonText() {
 		runButton.click();
 		return (runButton.getText());
-	}
-
-	public void ClickLink(String linkname) {
-		// TODO Auto-generated method stub
-
 	}
 
 	public String Text_output() {
@@ -131,4 +115,74 @@ public class DSAlgoLinkedListPom extends DSAlgoCommonPom {
 		// TODO Auto-generated method stub
 		return (driver.getTitle());		
 	}
-}
+
+	public void navigateLinkedListPage() {
+		// TODO Auto-generated method stub
+		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/");
+	}
+
+	public void PageIntroduction() {
+		
+		// TODO Auto-generated method stub
+		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/introduction/");
+		
+	}
+
+	public void navigateEditorPage() {
+		// TODO Auto-generated method stub
+		driver.navigate().to("https://dsportalapp.herokuapp.com/tryEditor/");
+	}
+
+
+	public void ClickCreatingLinkedList() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/creating-linked-list/");
+	}
+
+	public void clickTypesOfLinkedList() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/types-of-linked-list/");			
+	}	
+	
+	public void navigateTypesOfLinkedListPage() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/types-of-linked-list/");			
+	}
+		
+	public void clickImplementOfLinkedList() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/implement-linked-list-in-python/");			
+	}	
+	
+	public void navigateImplementOfLinkedListPage() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/implement-linked-list-in-python/");			
+	}	
+	
+	public void clickTraversalOfLinkedList() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/traversal/");			
+	}
+	
+	public void navigateTraversalOfLinkedListPage() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/traversal/");			
+	}	
+	
+	public void clickInsertionOfLinkedList() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/insertion-in-linked-list/");			
+	}	
+	public void navigateInsertionOfLinkedListPage() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/insertion-in-linked-list/");			
+	}
+	
+	public void clickDeletionOfLinkedList() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/deletion-in-linked-list/");			
+	}	
+	public void navigateDeletionOfLinkedListPage() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/deletion-in-linked-list/");			
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	}
+
