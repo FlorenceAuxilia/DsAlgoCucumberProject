@@ -89,10 +89,10 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 
 	}
 
-	@When("The user clicks {string} Link")
-	public void the_user_clicks_link_in_linkedlistpage(String string) {
-		linkedlist_obj.ClickLinkedlistLink(string);
-	}
+	//@When("The user clicks {string} Link")
+	//public void the_user_clicks_link_in_linkedlistpage(String string) {
+	//	linkedlist_obj.ClickLinkedlistLink(string);
+	//}
 
 	@Then("The user to be directed to linked list {string} page")
 	public void the_user_to_be_directed_link_name_page(String linkname) {
