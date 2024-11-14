@@ -390,7 +390,7 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 		System.out.println("Inside Then block");
 		ExcelReader reader = new ExcelReader();
 		List<Map<String, String>> testData = reader
-				.getData(System.getProperty("user.dir") + "\\src\\test\\resources\\Utlils\\Python.xlsx", sheet_Name);
+				.getData(System.getProperty("user.dir") + "\\src\\test\\resources\\Utlils\\NewPython.xlsx", sheet_Name);
 		String result = testData.get(row_Number).get("Result");
 		System.out.println("output result is: " + result);
 		String output = arraypage_obj.txt_output1();
