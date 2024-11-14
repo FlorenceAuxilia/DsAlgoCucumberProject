@@ -101,15 +101,15 @@ Scenario: Array Practice Questions python editor Submit button is working
     Given The user is on the Array Practice Questions page 
     When The user clicks submit button
     Then The user should get error message in console
-    #
-#@array 	
- #Scenario Outline: Practice Que python Editor validation
-    #Given The user is on Array Practice Questions editor page 
-    #When User click Run button with valid python code to print in excel sheetname "<Sheet_Name>" and rownumber <Row_Number> 
-    #Then User should see the output sheetname "<Sheet_Name>" and rownumber <Row_Number>
-#
-     #Examples: 
-      #| Sheet_Name | Row_Number |
-      #| ArrayPython | 0 |
-      #| ArrayPython | 1 |
-      #| ArrayPython   | 2 |
+    
+@array 	
+ Scenario Outline: Practice Que python Editor validation
+    Given The user is on Array Practice Questions editor page 
+    When User click Run button with valid python code to print in excel sheetname "<Sheet_Name>" and rownumber <Row_Number> 
+    Then User should see the output sheetname "<Sheet_Name>" and rownumber <Row_Number>
+
+     Examples: 
+      | Sheet_Name | Row_Number |
+      | ArrayPython | 0 |
+      | ArrayPython | 1 |
+      | ArrayPython   | 2 |
