@@ -61,7 +61,7 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 
 	//@After("@array")
 	//public void teardown() {
-		//driver.close();
+	//	driver.close();
 
 	//}
 
@@ -79,16 +79,17 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 
 	@Given("The user is on the  home page with successful login")
 	public void the_user_is_on_the_home_page_with_successful_login() {
-		if(driver.getTitle().equals("NumpyNinja"))
-		{
+		if (driver.getTitle().equals("NumpyNinja")) {
 			Assert.assertTrue(true);
 		}
 	}
+
 	@When("The user clicks on Get Started button")
 	public void the_user_clicks_on_get_started_button() {
 		homepage_obj.click_select_Arrays();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
 	}
+
 	@Then("user should be directed to {string} page")
 	public void user_should_be_directed_to_page(String string) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -100,9 +101,8 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 
 	@Given("The user is on Array page")
 	public void the_user_is_on_array_page() {
+		arraypage_obj.navigateToArrayPage();
 
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	}
 
 	@When("The user clicks Arrays in Python	link")
@@ -118,14 +118,11 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 		} else {
 			Assert.assertTrue(false);
 		}
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	}
 
 	@Given("The user is on the Array in Python Page")
 	public void the_user_is_on_the_array_in_python_page() {
-
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/arrays-in-python/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		arraypage_obj.navigateToArrayInPythonPage();
 	}
 
 	@When("The user clicks Try Here button of Array in Python Page")
@@ -141,20 +138,18 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 
 	@When("The user clicks Arrays using List link")
 	public void the_user_clicks_arrays_using_list_link() {
-
 		arraypage_obj.ClickArrayUsingListLink();
 	}
 
 	@Then("The user should be on the Arrays using List page")
 	public void the_user_should_be_on_the_arrays_using_list_page() {
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/arrays-using-list/");
+		arraypage_obj.navigateToArraysUsingListPage();
+
 	}
 
 	@Given("The user is on the Array using list page")
 	public void the_user_is_on_the_array_using_list_page() {
-
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/arrays-using-list/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		arraypage_obj.navigateToArraysUsingListPage();
 
 	}
 
@@ -171,9 +166,8 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 
 	@Given("The user is on the Array Page")
 	public void the_user_is_on_the_array_page() {
+		arraypage_obj.navigateToArrayPage();
 
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	}
 
 	@When("The user click Array basic operation in Lists")
@@ -190,9 +184,8 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 
 	@Given("The user is on the Basic operations in Lists page")
 	public void the_user_is_on_the_basic_operations_in_lists_page() {
+		arraypage_obj.navigateToArrBasicOperation();
 
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/basic-operations-in-lists/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	}
 
 	@When("The user clicks Try Here button of Operations in Lists")
@@ -214,9 +207,7 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 
 	@Given("The user is on the  Applications of Array page")
 	public void the_user_is_on_the_applications_of_array_page() {
-
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/applications-of-array/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		arraypage_obj.navigateToApplicationOfArray();
 	}
 
 	@When("The user clicks Try Here button in Applications of Array page")
@@ -238,7 +229,6 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 	@Given("The user is on the Python Editor")
 	public void the_user_is_on_the_python_editor() {
 		arraypage_obj.tryHerePythonEditor();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	}
 
 	@When("The user enter valid python code print {string} and clicks run button")
@@ -272,9 +262,8 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 
 	@Given("The use is on the  Array in Python Page")
 	public void the_use_is_on_the_array_in_python_page() {
+		arraypage_obj.navigateToArrayInPythonPage();
 
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/arrays-in-python/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	}
 
 	@When("The user click Practice Questions link")
@@ -289,9 +278,8 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 
 	@Given("The use is on the  Array Practice Questions Page")
 	public void the_use_is_on_the_array_practice_questions_page() {
+		arraypage_obj.arrnavigateToArrayPracticePage();
 
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/practice");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	}
 
 	@When("The user click Search the array link")
@@ -336,16 +324,12 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 
 	@Given("The user is on the Search the array link Python Editor")
 	public void the_user_is_on_the_search_the_array_link_python_editor() {
-
-		driver.navigate().to("https://dsportalapp.herokuapp.com/question/1");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		arraypage_obj.navigateToPracticeQuestion1();
 	}
 
 	@Given("The user is on the Array Practice Questions page")
 	public void the_user_is_on_the_array_practice_questions_page() {
-
-		driver.navigate().to("https://dsportalapp.herokuapp.com/question/1");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		arraypage_obj.navigateToPracticeQuestion1();
 	}
 
 	@When("The user clicks submit button")
@@ -357,20 +341,21 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 	public void the_user_should_get_error_message_in_console() {
 		arraypage_obj.getError();
 	}
-	
+
 	@Given("The user is on the first Array Practice Question page")
 	public void the_user_is_on_the_first_array_practice_question_page() {
-	   driver.navigate().to("https://dsportalapp.herokuapp.com/question/1");
+		arraypage_obj.navigateToPracticeQuestion1();
 	}
-	
-	//run for invalid code
-	
+
+	// run for invalid code
+
 	@When("The user clicks run button with invalid code")
 	public void the_user_clicks_run_button_with_invalid_code(String string) {
-	
-	  act.sendKeys(string).build().perform();
+
+		act.sendKeys(string).build().perform();
 		arraypage_obj.clickrunInvalidCode();
 	}
+
 	@Then("user can see error message warning")
 	public void user_can_see_error_message_warning() {
 		try {
@@ -384,32 +369,34 @@ public class DSAlgoArray_SD extends DSAlgoCommon_SD {
 	}
 
 //practice que editor run button scenario
-	@Given("The user is on the Array Practice Questions editor page")
-	public void the_user_is_on_the_array_practice_questions_editor_page() {
-		driver.navigate().to("https://dsportalapp.herokuapp.com/question/1");
-
-		//DriverFactory.getDriver().navigate().to("https://dsportalapp.herokuapp.com/question/1");
+	@Given("The user is on Array Practice Questions editor page")
+	public void the_user_is_on_array_practice_questions_editor_page() {
+		arraypage_obj.navigateToPracticeQuestion1();
 	}
-	  
-	
+
 	@When("User click Run button with valid python code to print in excel sheetname {string} and rownumber {int}")
 	public void user_click_run_button_with_valid_python_code_to_print_in_excel_sheetname_and_rownumber(
-			String sheet_Name, Integer row_Number) throws InvalidFormatException, IOException {
-		ExcelReader reader = new ExcelReader();
-		List<Map<String, String>> testData = reader.getData(System.getProperty("user.dir") + "\\src\\test\\resources\\Utlils\\Python.xlsx", sheet_Name);
-		String code = testData.get(row_Number).get("code");
-		act.sendKeys(code).build().perform();
+			String sheet_Name, Integer row_Number) throws InvalidFormatException, IOException, InterruptedException {
+
+		arraypage_obj.pythonCode(sheet_Name, row_Number);
+		Thread.sleep(5000);
 		arraypage_obj.clickRunBtn1();
 
 	}
 
 	@Then("User should see the output sheetname {string} and rownumber {int}")
 	public void user_should_see_the_output_sheetname_and_rownumber(String sheet_Name, Integer row_Number)
-			throws InvalidFormatException, IOException {
+			throws InvalidFormatException, IOException, InterruptedException {
+		System.out.println("Inside Then block");
 		ExcelReader reader = new ExcelReader();
-		List<Map<String, String>> testData = reader.getData(System.getProperty("user.dir") + "\\src\\test\\resources\\Utlils\\Python.xlsx", sheet_Name);
+		List<Map<String, String>> testData = reader
+				.getData(System.getProperty("user.dir") + "\\src\\test\\resources\\Utlils\\Python.xlsx", sheet_Name);
 		String result = testData.get(row_Number).get("Result");
-		Assert.assertEquals(arraypage_obj.que_output(), result);
+		System.out.println("output result is: " + result);
+		String output = arraypage_obj.txt_output1();
+		System.out.println("Output from application:: " + output);
+		Assert.assertEquals(output, result);
+
 	}
 
 }

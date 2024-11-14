@@ -1,11 +1,21 @@
+
 package com.dsalgo.pom;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+
+import com.dsalgo.utility.ExcelReader;
 
 public class DSAlgoArraypom extends DSAlgoCommonPom {
 	public DSAlgoArraypom(WebDriver driver) {
@@ -41,14 +51,14 @@ public class DSAlgoArraypom extends DSAlgoCommonPom {
 	WebElement submit;
 	@FindBy(xpath = "//pre[@id='output']")
 	WebElement submitError;
-	//@FindBy(xpath = "//*[@id='answer_form']/button")
-	//WebElement runBtn1;
+	// @FindBy(xpath = "//*[@id='answer_form']/button")
+	// WebElement runBtn1;
 	@FindBy(xpath = "//*[@id='answer_form']/button")
 	WebElement runPracticeQueCode;
-	@FindBy(xpath = "//*[@id='output']")
-	WebElement que_output;
 	@FindBy(xpath = "//button[text()='Run']")
 	WebElement runBtn1;
+	@FindBy(xpath = "//textarea[@tabindex='0']") // div[i
+	WebElement textArea;
 	String actualTitle;
 
 	public Object getPageTitle() {
@@ -66,8 +76,7 @@ public class DSAlgoArraypom extends DSAlgoCommonPom {
 	}
 
 	public void ClickArrayUsingListLink() {
-
-		driver.findElement(By.linkText("Arrays Using List")).click();
+		ArraysUsingList.click();
 
 	}
 
@@ -77,6 +86,41 @@ public class DSAlgoArraypom extends DSAlgoCommonPom {
 
 	public void clickApplicationOfArray() {
 		ApplicationsOfArray.click();
+	}
+	
+//navigation pages
+	public void navigateToArrayPage() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/array/");
+
+	}
+
+	public void navigateToArrayInPythonPage() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/array/arrays-in-python/");
+
+	}
+
+	public void navigateToArraysUsingListPage() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/array/arrays-using-list/");
+
+	}
+
+	public void navigateToApplicationOfArray() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/array/applications-of-array/");
+		
+	}
+
+	public void arrnavigateToArrayPracticePage() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/array/practice");
+		
+	}
+	public void tryHerePythonEditor() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/tryEditor");
+
+	}
+
+	public void navigateToPracticeQuestion1() {
+		driver.navigate().to("https://dsportalapp.herokuapp.com/question/1");
+		
 	}
 
 	public void arrayPageLogin(String uid, String password) {
@@ -89,10 +133,6 @@ public class DSAlgoArraypom extends DSAlgoCommonPom {
 
 	}
 
-	public void navigateToApplicationOfArray() {
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/applications-of-array/");
-
-	}
 
 	public void click_run() {
 		runButton.click();
@@ -159,21 +199,10 @@ public class DSAlgoArraypom extends DSAlgoCommonPom {
 
 //practice que editor run button
 	public void clickRunBtn1() {
+
 		
-		//try {
-		runBtn1.click();
-			/*Thread.sleep(1000);
-			driver.switchTo().alert().accept();
-			Assert.assertTrue(false);
-		} catch (Exception e) {
-
-		}
-*/
-	}
-
-	public void practiceQueOutput() {
 		try {
-			click_run1();
+			runBtn1.click();
 			Thread.sleep(1000);
 			driver.switchTo().alert().accept();
 			Assert.assertTrue(true);
@@ -182,6 +211,7 @@ public class DSAlgoArraypom extends DSAlgoCommonPom {
 		}
 
 	}
+	
 
 	public void clickSubmit() {
 		submit.click();
@@ -193,23 +223,38 @@ public class DSAlgoArraypom extends DSAlgoCommonPom {
 
 	}
 
-	public void clickLinkFromList(String linkname) {
-		que_output.click();
-
-	}
-
 	public void click_PraticeQueCodeRun() {
 		runBtn1.click();
 
 	}
 
-	public void tryHerePythonEditor() {
-		driver.navigate().to("https://dsportalapp.herokuapp.com/tryEditor");
-
+	public String txt_output1() throws InterruptedException {
+		Thread.sleep(3000);
+		System.out.println("Get txt-output1 :: " + txt_output1.getText());
+		return txt_output1.getText();
 	}
 
-	public String que_output() {
-		return que_output.getText();
+	public void fixIndentation(String code, WebElement element) {
+		new Actions(driver).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
+		String[] str1 = code.split("\n");
+		for (int i = 0; i < str1.length; i++) {
+			System.out.println(str1[i]);
+			if (str1[i].equalsIgnoreCase("\b")) {
+				element.sendKeys(Keys.BACK_SPACE);
+			} else {
+				element.sendKeys(str1[i]);
+				element.sendKeys(Keys.ENTER);
+			}
+		}
+	}
+
+	public void pythonCode(String sheet_Name, int row_Number) throws InvalidFormatException, IOException {
+		ExcelReader reader = new ExcelReader();
+		// arraypage_obj.TextIndentation(driver, null, row_Number, row_Number, false);
+		List<Map<String, String>> testData = reader
+				.getData(System.getProperty("user.dir") + "\\src\\test\\resources\\Utlils\\NewPython.xlsx", sheet_Name);
+		String code = testData.get(row_Number).get("code");
+		fixIndentation(code, textArea);
 	}
 
 }
