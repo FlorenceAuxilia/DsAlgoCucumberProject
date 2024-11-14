@@ -33,7 +33,7 @@ public class DSAlgoCommon_SD {
 	public DSAlgoGraphPom graphPage_obj;
 	public DSAlgoRegisterPom registerpage_obj;
 	public DSAlgoArraypom arraypage_obj;
-	
+	public DSAlgoLinkedListPom linkedlist_obj
 	
 	
 	
