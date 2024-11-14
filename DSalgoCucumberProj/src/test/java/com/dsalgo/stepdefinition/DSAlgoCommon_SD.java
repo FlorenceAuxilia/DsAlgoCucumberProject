@@ -34,6 +34,7 @@ public class DSAlgoCommon_SD {
 	public DSAlgoRegisterPom registerpage_obj;
 	public DSAlgoArraypom arraypage_obj;
 	public DSAlgoLinkedListPom linkedlist_obj;
+		 
 	
 	
 	
