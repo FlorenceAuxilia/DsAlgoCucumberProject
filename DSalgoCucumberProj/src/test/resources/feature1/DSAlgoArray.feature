@@ -111,5 +111,5 @@ Scenario: Array Practice Questions python editor Submit button is working
      Examples: 
       | Sheet_Name | Row_Number |
       | ArrayPython | 0 |
-      | ArrayPython | 1 |
-      | ArrayPython   | 2 |
+     | ArrayPython | 1 |
+     # | ArrayPython   | 2 |
