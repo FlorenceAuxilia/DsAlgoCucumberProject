@@ -30,7 +30,7 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 
 	Actions act;
 	WebDriver driver;
-	ConfigReader config = new ConfigReader();
+	//ConfigReader config = new ConfigReader();
 	String linkedlistpageTitle = "Linked List";
 	String pracQuesTitle = "Practice Questions";
 
@@ -39,9 +39,9 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 		config.loadProperties();
 		driver = DriverFactory.getDriver();
 
-		String browser = config.getBrowserType();
-		DriverFactory.launchBrowser(browser);
-		ConfigReader.initElements();
+		//String browser = config.getBrowserType();
+		//DriverFactory.launchBrowser(browser);
+		//ConfigReader.initElements();
 		driver = DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -89,10 +89,7 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 
 	}
 
-	//@When("The user clicks {string} Link")
-	//public void the_user_clicks_link_in_linkedlistpage(String string) {
-	//	linkedlist_obj.ClickLinkedlistLink(string);
-	//}
+	
 
 	@Then("The user to be directed to linked list {string} page")
 	public void the_user_to_be_directed_link_name_page(String linkname) {
@@ -333,31 +330,9 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 	public void user_is_navigated_to_a_page_having_TryEditor_with_a_Run_button_for_Deletion() {
 		linkedlist_obj.navigateEditorPage();
 	}
-	// this is for Deletion- end
-
+	
 	
 
 	
 	
 }
-//	@After
-//	public void af() {
-//
-//		driver.close();
-//
-//		driver.quit();
-//
-//	}
-//
-//	@And("clicks on button Try here button$")
-//	public void clicks_on_button_try_here_button() throws InterruptedException {
-//		try {
-//
-//			driver.findElement(By.linkText("linkText=Try here>>>")).click();
-//		} catch (NoSuchElementException e) {
-//			System.out.println("Handled NoSuchElementException");
-//
-//		}
-//
-//	}
-//}
