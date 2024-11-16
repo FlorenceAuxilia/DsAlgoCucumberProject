@@ -2,16 +2,6 @@
 Feature: LinkedList Page validation
 
  
- #@linkedList
- #Scenario Outline: LinkedList page validation link land to correct page
- #		Given The user in the LinkedList page after logged in
- #		When The user clicks <link name> Link 
- #		Then The user to be directed to linked list <link name> page 
- #
- #Examples:
- #	|link name|
-#	|"Introduction"|
-  #
   
   
  @linkedList   
