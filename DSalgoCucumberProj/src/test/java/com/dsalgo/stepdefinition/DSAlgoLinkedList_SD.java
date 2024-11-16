@@ -36,11 +36,11 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 
 	@Before("@linkedList")
 	public void setUP() throws Throwable {
-		config.loadProperties();
-		driver = DriverFactory.getDriver();
+		//config.loadProperties();
+		//driver = DriverFactory.getDriver();
 
-		String browser = config.getBrowserType();
-		DriverFactory.launchBrowser(browser);
+		//String browser = config.getBrowserType();
+		//DriverFactory.launchBrowser(browser);
 		ConfigReader.initElements();
 		driver = DriverFactory.getDriver();
 		driver.manage().window().maximize();
