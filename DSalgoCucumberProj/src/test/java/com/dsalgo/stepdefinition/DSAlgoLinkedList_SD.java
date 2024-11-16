@@ -329,31 +329,11 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 	public void user_is_navigated_to_a_page_having_TryEditor_with_a_Run_button_for_Deletion() {
 		linkedlist_obj.navigateEditorPage();
 	}
-	// this is for Deletion- end
+	
 
 	
 
 	
 	
 }
-//	@After
-//	public void af() {
-//
-//		driver.close();
-//
-//		driver.quit();
-//
-//	}
-//
-//	@And("clicks on button Try here button$")
-//	public void clicks_on_button_try_here_button() throws InterruptedException {
-//		try {
-//
-//			driver.findElement(By.linkText("linkText=Try here>>>")).click();
-//		} catch (NoSuchElementException e) {
-//			System.out.println("Handled NoSuchElementException");
-//
-//		}
-//
-//	}
-//}
+
