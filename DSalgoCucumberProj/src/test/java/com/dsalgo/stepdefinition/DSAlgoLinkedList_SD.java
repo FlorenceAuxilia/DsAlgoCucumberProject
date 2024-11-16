@@ -30,7 +30,7 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 
 	Actions act;
 	WebDriver driver;
-	//ConfigReader config = new ConfigReader();
+        ConfigReader config = new ConfigReader();
 	String linkedlistpageTitle = "Linked List";
 	String pracQuesTitle = "Practice Questions";
 
@@ -39,9 +39,9 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 		config.loadProperties();
 		driver = DriverFactory.getDriver();
 
-		//String browser = config.getBrowserType();
-		//DriverFactory.launchBrowser(browser);
-		//ConfigReader.initElements();
+		String browser = config.getBrowserType();
+		DriverFactory.launchBrowser(browser);
+		ConfigReader.initElements();
 		driver = DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
