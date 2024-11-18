@@ -1,5 +1,5 @@
 
-Feature: LinkedList Page validation
+Feature: Linked List Page validation
 
  
   
@@ -17,7 +17,9 @@ Feature: LinkedList Page validation
     Then user is navigated to a page having TryEditor with a Run button    
  
  @linkedList   
-  Scenario: Check user is redirected to of Linked List page6
+
+  Scenario: Check user is redirected to of Linked List page5
+
     Given user is on the Linked List page
     When user clicks on Creating Linked List link
     Then user is navigated to the Creating Linked List page
@@ -29,7 +31,9 @@ Feature: LinkedList Page validation
     Then user is navigated to a page having TryEditor with a Run button
     
  @linkedList   
-  Scenario: Check user is redirected to of Linked List page5
+
+  Scenario: Check user is redirected to of Linked List page6
+
     Given user is on the Linked List page for Types
     When user clicks on Types of Linked List link
     Then user is navigated to the Types of Linked List page
@@ -65,7 +69,11 @@ Feature: LinkedList Page validation
     Then User is navigated to a page having TryEditor with a Run button for Traversal 
  
  @linkedList   
-  Scenario: Check user is redirected to of Linked List page3
+
+  Scenario: Check user is redirected to of Linked List pages
+
+
+
     Given User is on the Linked List page for Insertion
     When User clicks on Insertion of Linked List link
     Then User is navigated to the Insertion of Linked List page

@@ -89,8 +89,6 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 
 	}
 
-	
-
 	@Then("The user to be directed to linked list {string} page")
 	public void the_user_to_be_directed_link_name_page(String linkname) {
 		if (linkedlist_obj.getPageTitle().equals(linkname)) {
@@ -331,8 +329,18 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 		linkedlist_obj.navigateEditorPage();
 	}
 	
+
+
 	
 
 	
 	
 }
+
+
+	
+
+	
+	
+}
+
