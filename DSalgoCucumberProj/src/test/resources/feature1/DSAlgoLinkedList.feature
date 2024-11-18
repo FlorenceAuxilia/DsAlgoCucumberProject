@@ -2,16 +2,6 @@
 Feature: Linked List Page validation
 
  
- #@linkedList
- #Scenario Outline: LinkedList page validation link land to correct page
- #		Given The user in the LinkedList page after logged in
- #		When The user clicks <link name> Link 
- #		Then The user to be directed to linked list <link name> page 
- #
- #Examples:
- #	|link name|
-#	|"Introduction"|
-  #
   
   
  @linkedList   
@@ -27,7 +17,9 @@ Feature: Linked List Page validation
     Then user is navigated to a page having TryEditor with a Run button    
  
  @linkedList   
+
   Scenario: Check user is redirected to of Linked List page5
+
     Given user is on the Linked List page
     When user clicks on Creating Linked List link
     Then user is navigated to the Creating Linked List page
@@ -39,7 +31,9 @@ Feature: Linked List Page validation
     Then user is navigated to a page having TryEditor with a Run button
     
  @linkedList   
+
   Scenario: Check user is redirected to of Linked List page6
+
     Given user is on the Linked List page for Types
     When user clicks on Types of Linked List link
     Then user is navigated to the Types of Linked List page
@@ -75,7 +69,11 @@ Feature: Linked List Page validation
     Then User is navigated to a page having TryEditor with a Run button for Traversal 
  
  @linkedList   
+
   Scenario: Check user is redirected to of Linked List pages
+
+
+
     Given User is on the Linked List page for Insertion
     When User clicks on Insertion of Linked List link
     Then User is navigated to the Insertion of Linked List page

@@ -16,6 +16,20 @@ Then Homepage should be displayed
 Examples:
 	|username|password|
 	|ninja4|Tiger123@|
+	
+@login
+Scenario: Check for error message only username 
+Given The user is in login page
+When Enter the username
+And Click on Login
+Then Error popup should be displayed
+
+@login
+Scenario: Check for error message only password 
+Given The user is in login page
+When Enter the password
+And Click on Login
+Then Error popup should be displayed	
 
 @login	
 Scenario Outline: Check login is not sucessful with invalid credentials

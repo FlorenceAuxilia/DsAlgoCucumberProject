@@ -35,10 +35,10 @@ public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 	public void setUP() throws Throwable
 	{
 //setup		
-		config.loadProperties();
-		String browser=config.getBrowserType();
-		DriverFactory.launchBrowser(browser);
-		ConfigReader.initElements();
+		//config.loadProperties();
+		//String browser=config.getBrowserType();
+		//DriverFactory.launchBrowser(browser);
+		//ConfigReader.initElements();
 		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -190,10 +190,10 @@ public class DSAlgoStack_SD extends DSAlgoCommon_SD{
 		Assert.assertTrue(false);
 		
 	}
-	@After("@test")
-	public void teardown()
-	{
-		driver.close();
+	//@After("@test")
+	//public void teardown()
+	//{
+		//driver.close();
 	   
-	}
+	//}
 }

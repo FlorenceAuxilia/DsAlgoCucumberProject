@@ -83,10 +83,20 @@ public DSAlgoLoginPom(WebDriver driver){
 		// TODO Auto-generated method stub
 		driver.findElement(registerButton).click();
 	}
-
+	
 	public boolean checkForErrorMessage()
 	{
 		return (driver.findElement(By.xpath("//div[@role='alert']")).isDisplayed());
+	}
+	
+
+	public String checkForErrorpopup()
+	{
+		
+		WebElement activeElement = driver.switchTo().activeElement();
+		String messageStr = activeElement.getAttribute("validationMessage");
+		System.out.println("Actual message appeared on screen: " + messageStr);
+		return messageStr;
 	}
 	
 

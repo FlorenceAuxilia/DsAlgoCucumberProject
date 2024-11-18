@@ -25,14 +25,15 @@ public class DSAlgoTree_SD extends DSAlgoCommon_SD{
 	ConfigReader config =new ConfigReader();
 	Actions act;
 	String treepageTitle="Tree";
+	String pracQuesTitle="Practice Questions";
 	
 	@Before ("@tree")
 	public void setUP() throws Throwable
 	{
-		config.loadProperties();
-		String browser=config.getBrowserType();
-		DriverFactory.launchBrowser(browser);
-		ConfigReader.initElements();
+		//config.loadProperties();
+		//String browser=config.getBrowserType();
+		//DriverFactory.launchBrowser(browser);
+		//ConfigReader.initElements();
 
 		driver=DriverFactory.getDriver();
 		//DriverFactory.getDriver().get("https://dsportalapp.herokuapp.com/");
@@ -140,19 +141,20 @@ public void the_user_redirect_to_try_editor_page() {
 
 @Then("The Practice question for tree page should be displayed")
 public void the_practice_question_page_should_be_displayed() {
+	Assert.assertTrue(false);
 	
-	if(driver.getTitle().equals("pracQuesTitle"))
-	{
-		Assert.assertTrue(false);
-	}
+//	if(driver.getTitle().equals(pracQuesTitle))
+//	{
+//		Assert.assertTrue(false);
+//	}
 }
 
 
-@After ("@tree")
-public void teardown()
-{
-	driver.close();
+//@After ("@tree")
+//public void teardown()
+//{
+//	driver.close();
    
-}
+//}
 
 }

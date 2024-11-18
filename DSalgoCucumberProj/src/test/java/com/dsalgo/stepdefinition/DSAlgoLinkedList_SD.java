@@ -30,7 +30,7 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 
 	Actions act;
 	WebDriver driver;
-	ConfigReader config = new ConfigReader();
+        ConfigReader config = new ConfigReader();
 	String linkedlistpageTitle = "Linked List";
 	String pracQuesTitle = "Practice Questions";
 
@@ -88,7 +88,6 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 		driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/");
 
 	}
-
 
 	@Then("The user to be directed to linked list {string} page")
 	public void the_user_to_be_directed_link_name_page(String linkname) {
@@ -330,6 +329,14 @@ public class DSAlgoLinkedList_SD extends DSAlgoCommon_SD {
 		linkedlist_obj.navigateEditorPage();
 	}
 	
+
+
+	
+
+	
+	
+}
+
 
 	
 
