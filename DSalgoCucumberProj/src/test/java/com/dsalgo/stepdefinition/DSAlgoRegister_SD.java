@@ -64,7 +64,7 @@ public class DSAlgoRegister_SD extends DSAlgoCommon_SD {
 
 	@Before
 	public void preCondition() {
-		//driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.get("https://dsportalapp.herokuapp.com/");
 		driver.manage().window().maximize();
 		getstartedpage_obj = new DSAlgoGetStartedPom(driver);
