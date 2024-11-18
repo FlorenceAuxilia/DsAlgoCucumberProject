@@ -1,5 +1,5 @@
 
-Feature: LinkedList Page validation
+Feature: Linked List Page validation
 
  
  #@linkedList
@@ -75,7 +75,7 @@ Feature: LinkedList Page validation
     Then User is navigated to a page having TryEditor with a Run button for Traversal 
  
  @linkedList   
-  Scenario: Check user is redirected to of Linked List page3
+  Scenario: Check user is redirected to of Linked List pages
     Given User is on the Linked List page for Insertion
     When User clicks on Insertion of Linked List link
     Then User is navigated to the Insertion of Linked List page
