@@ -1,8 +1,7 @@
 Feature: Data Structure Introduction page validation
-
+Background: Given The user is in home page after login
   @DataStructure
   Scenario: Data Structure page validation using Get Started button
-    Given The user is in home page after login
     When The user clicks the Getting Started button in Data Structures-Introduction panel
     Then The user should be directed to data structure "Data Structures-Introduction" Page
 
