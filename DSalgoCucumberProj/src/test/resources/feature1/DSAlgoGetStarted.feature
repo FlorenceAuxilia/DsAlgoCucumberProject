@@ -1,9 +1,9 @@
 Feature: MainPage
-
+Background:
+When The user should be in GetStarted page
 	@main
   Scenario: Test Successful GetStarted page Launch
    
-    When The user should be in GetStarted page
     Then The user should landed on the page there should be a message "You are at the right place"
     
   @main  
