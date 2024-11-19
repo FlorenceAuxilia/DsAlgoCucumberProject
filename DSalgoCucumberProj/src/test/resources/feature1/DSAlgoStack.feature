@@ -1,13 +1,12 @@
 Feature: Stack page validation
 
+Background: Given The user is in home page with successful login
  @test
-  Scenario: Stack page validation using Get Started button
-    Given The user is in home page with successful login
+  Scenario: Stack page validation using Get Started button  
     When The user clicks the Getting Started button in Stack Panel
     Then The user should be directed to "Stack" Page
 @test
-  Scenario: Stack page validation using stack dropdown option
-    Given The user is in home page with successful login
+  Scenario: Stack page validation using stack dropdown option   
     When The user clicks Stack option in the dropdown
     Then The user should be directed to "Stack" Page
 @test
