@@ -1,6 +1,7 @@
 Feature: Stack page validation
 
-Background: Given The user is in home page with successful login
+Background:
+Given The user is in home page with successful login
  @test
   Scenario: Stack page validation using Get Started button  
     When The user clicks the Getting Started button in Stack Panel
