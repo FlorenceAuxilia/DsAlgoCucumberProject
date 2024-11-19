@@ -1,5 +1,6 @@
 Feature: Home page validation
-Background: Given The user enters home page
+Background:
+Given The user enters home page
   @Home_sucesslogin
   Scenario: Home page & Stack page validation using Get Started button
  
