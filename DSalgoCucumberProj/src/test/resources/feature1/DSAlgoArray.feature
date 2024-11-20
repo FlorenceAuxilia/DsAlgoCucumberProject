@@ -1,5 +1,6 @@
 Feature: feature to test Array page functionality
-
+Background:
+Given The user is on the  home page with successful login
 @array 
 Scenario: Validate getting started is working
 	 	Given The user is on the  home page with successful login
