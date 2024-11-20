@@ -12,10 +12,12 @@ Feature: Linked List Page validation
  #	|link name|
 #	|"Introduction"|
   #
-  
+   Background:
+     Given user is on the Linked List page
+     
   
  @linkedList   
- Scenario: Check user is redirected to Introduction of Linked List page
+ Scenario: Check user is redirected to Introduction of Linked List 
     Given user is on the Linked List page
     When user clicks on Introduction link
     Then user is navigated to the Introduction page
@@ -87,7 +89,7 @@ Feature: Linked List Page validation
     Then User is navigated to a page having TryEditor with a Run button for Insertion 
  
   @linkedList   
-  Scenario: Check user is redirected to of Linked List page4
+  Scenario: Check user is redirected to  Linked List page
     Given User is on the Linked List page for Deletion
     When User clicks on Deletion of Linked List link
     Then User is navigated to the Deletion of Linked List page
