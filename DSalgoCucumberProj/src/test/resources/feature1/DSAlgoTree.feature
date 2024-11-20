@@ -1,8 +1,8 @@
 @tree
 Feature: Tree page validation
 
-#Background:
-#Given The user is in home page after successful login
+Background:
+Given The user in the Tree page after logged in
 
 @tree
 Scenario: Tree page validation using Get Started button
