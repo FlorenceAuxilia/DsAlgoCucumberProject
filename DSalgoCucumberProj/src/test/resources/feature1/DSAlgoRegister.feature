@@ -1,5 +1,8 @@
 Feature: new user registration
 
+Background:
+Given The user is on the new user registration page
+
 @registration_successful
 Scenario Outline: new user registration with valid data
     Given The user is on the new user registration page
