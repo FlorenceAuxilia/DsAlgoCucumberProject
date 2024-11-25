@@ -1,7 +1,11 @@
 package com.dsalgo.stepdefinition;
 
+import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -15,6 +19,7 @@ import com.dsalgo.pom.DSAlgoLoginPom;
 import com.dsalgo.pom.DSAlgoRegisterPom;
 import com.dsalgo.pom.DSAlgoSignInPom;
 import com.dsalgo.utility.ConfigReader;
+import com.dsalgo.utility.ExcelReader;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -33,7 +38,7 @@ public class DSAlgoRegister_SD extends DSAlgoCommon_SD {
 	public DSAlgoRegisterPom dataSet(String username, String password, String confirmPassword) {
 		registerpage_obj.enterUsername(username);
 		registerpage_obj.enterPassword(password);
-		registerpage_obj.confirmPassword(confirmPassword);
+		registerpage_obj.enterConfirmPassword(confirmPassword);
 
 		return registerpage_obj;
 	}
@@ -88,7 +93,6 @@ public class DSAlgoRegister_SD extends DSAlgoCommon_SD {
 @When("The user clicks Register button after entering  with valid {string} and {string} and {string} in related textbox")
 public void the_user_clicks_register_button_after_entering_with_valid_and_and_in_related_textbox(String username,
 		String password, String confirmPassword) {
-    // Write code here that turns the phrase above into concrete actions
 	registerpage_obj = dataSet(username, password, confirmPassword);
 	registerpage_obj.clickRegister();
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -105,23 +109,36 @@ public void the_user_clicks_register_button_after_entering_with_valid_and_and_in
 
 	}
 	
-	/*
-	@When("User clicked register button with trying to enter more than difined limit characters  in sprintssnkanxklajwdoqwijsoiwswqdkqwdqdkdqdwqqwqwdqwqwdwqdqwdkwqhdqdqdwqdqwdwqdsprintssnkanxklajwdoqwijsoiwswqdkqwdqdkdqdwqqwqwdqwqwdwqdqwdkwqhdqdqdwqd")
-	public void user_clicked_register_button_with_trying_to_enter_more_than_difined_limit_characters_in_sprintssnkanxklajwdoqwijsoiwswqdkqwdqdkdqdwqqwqwdqwqwdwqdqwdkwqhdqdqdwqdqwdwqdsprintssnkanxklajwdoqwijsoiwswqdkqwdqdkdqdwqqwqwdqwqwdwqdqwdkwqhdqdqdwqd(String username) {
-	    // Write code here that turns the phrase above into concrete actions
-		registerpage_obj = dataSet(username, "", "");
-		registerpage_obj.clickRegister();
-		registerpage_obj.checkLimitForUsername();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-	} */
 	
-	@When("User clicked register button with trying to enter more than difined limit characters  in {string}")
-	public void user_clicked_register_button_with_trying_to_enter_more_than_difined_limit_characters_in(String username) {
-	    // Write code here that turns the phrase above into concrete actions
-		registerpage_obj = dataSet(username, "", "");
+	@When("The user clicks Register button after entering  with valid {string} and {int} in related textbox")
+	public void the_user_clicks_register_button_after_entering_with_valid_and_in_related_textbox(String sheetName, Integer row_Number) throws InvalidFormatException, IOException {
+		registerpage_obj.registerWithInputData(sheetName,row_Number);
 		registerpage_obj.clickRegister();
-		registerpage_obj.checkLimitForUsername();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	}
+	@Then("The user should be redirected to Home Page of DS Algo with new user account")
+	public void the_user_should_be_redirected_to_home_page_of_ds_algo_with_new_user_account() {
+		if (registerpage_obj.getPageTitle().equals(homepageTitle)) {
+			Assert.assertTrue(false);
+		} else {
+			Assert.assertTrue(true);
+		}
+
+	}
+	
+//	@When("User clicked register button with trying to enter more than difined limit characters  in {string}")
+//	public void user_clicked_register_button_with_trying_to_enter_more_than_difined_limit_characters_in(String username) {
+//	    // Write code here that turns the phrase above into concrete actions
+//		registerpage_obj = dataSet(username, "", "");
+//		registerpage_obj.clickRegister();
+//		registerpage_obj.checkLimitForUsername();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+//	}
+	
+	
+	@When("User clicked register button with trying to enter more than difined limit characters  in username {string} and {int}")
+	public void user_clicked_register_button_with_trying_to_enter_more_than_difined_limit_characters_in_username_and(String sheetName, Integer row_Number) throws InvalidFormatException, IOException {
+		registerpage_obj.registerWithInputData(sheetName,row_Number);
+		registerpage_obj.clickRegister();
 	}
 
 	@Then("user not able to see Error message after the character limit reached in username_field")
@@ -147,27 +164,39 @@ public void the_user_clicks_register_button_after_entering_with_valid_and_and_in
 		}
 	}
 
-	@When("User clicks Register button with invalid spacechar in {string} and valid {string} and {string}")
-	public void user_clicks_register_button_with_invalid_spacechar_in_and_valid_and(String username, String password,
-			String confirmPassword) throws InterruptedException {
-		registerpage_obj = dataSet(username, password, confirmPassword);
+//	@When("User clicks Register button with invalid spacechar in {string} and valid {string} and {string}")
+//	public void user_clicks_register_button_with_invalid_spacechar_in_and_valid_and(String username, String password,
+//			String confirmPassword) throws InterruptedException {
+//		registerpage_obj = dataSet(username, password, confirmPassword);
+//		registerpage_obj.clickRegister();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+//
+//	}
+	
+	
+	@When("User clicks Register button with invalid spacechar in {string} and valid  {int}")
+	public void user_clicks_register_button_with_invalid_spacechar_in_and_valid(String sheetName, Integer row_Number) throws InvalidFormatException, IOException {
+		registerpage_obj.registerWithInputData(sheetName,row_Number);
 		registerpage_obj.clickRegister();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
 	}
-
+	
 	@Then("The user is not able to see error msg after entering invalid data and user redirected to empty password textbox")
 	public void the_user_is_not_able_to_see_error_msg_after_entering_invalid_data_and_user_redirected_to_empty_password_textbox() {
 		registerpage_obj.chkError();
 	}
 
-	@When("The user clicks Register button after entering valid {string} and numeric {string} and {string}")
-	public void the_user_clicks_register_button_after_entering_valid_and_numeric_and(String username, String password,
-			String confirmPassword) throws InterruptedException {
-		registerpage_obj = dataSet(username, password, confirmPassword);
+//	@When("The user clicks Register button after entering valid {string} and numeric {string} and {string}")
+//	public void the_user_clicks_register_button_after_entering_valid_and_numeric_and(String username, String password,
+//			String confirmPassword) throws InterruptedException {
+//		registerpage_obj = dataSet(username, password, confirmPassword);
+//		registerpage_obj.clickRegister();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+//
+//	}
+	@When("The user clicks Register button after entering valid username {string}  and numeric {int}")
+	public void the_user_clicks_register_button_after_entering_valid_username_and_numeric(String sheetName, Integer row_Number) throws InvalidFormatException, IOException {
+		registerpage_obj.registerWithInputData(sheetName,row_Number);
 		registerpage_obj.clickRegister();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
 	}
 
 	@Then("User can see warning message")
@@ -175,13 +204,18 @@ public void the_user_clicks_register_button_after_entering_with_valid_and_and_in
 		registerpage_obj.warningMsgWithNumericPassword();
 	}
 
-	@When("The user clicks Register button after entering a valid {string} and less than Eight characters {string} and {string}")
-	public void the_user_clicks_register_button_after_entering_a_valid_and_less_than_eight_characters_and(
-			String username, String password, String confirmPassword) throws InterruptedException {
-		registerpage_obj = dataSet(username, password, confirmPassword);
+//	@When("The user clicks Register button after entering a valid {string} and less than Eight characters {string} and {string}")
+//	public void the_user_clicks_register_button_after_entering_a_valid_and_less_than_eight_characters_and(
+//			String username, String password, String confirmPassword) throws InterruptedException {
+//		registerpage_obj = dataSet(username, password, confirmPassword);
+//		registerpage_obj.clickRegister();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+//
+//	}
+	@When("The user clicks Register button after entering a valid username {string} and less than Eight characters {int}")
+	public void the_user_clicks_register_button_after_entering_a_valid_username_and_less_than_eight_characters(String sheetName, Integer row_Number) throws InvalidFormatException, IOException {
+		registerpage_obj.registerWithInputData(sheetName,row_Number);
 		registerpage_obj.clickRegister();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
 	}
 
 	@Then("User can see warning message1")
@@ -189,15 +223,19 @@ public void the_user_clicks_register_button_after_entering_with_valid_and_and_in
 		registerpage_obj.warningMsgWithInvalidPassword();
 	}
 
-	@When("The user clicks Register button after entering valid {string} and different passwords in {string} and {string}")
-	public void the_user_clicks_register_button_after_entering_valid_and_different_passwords_in_and(String username,
-			String password, String confirmPassword) {
-		registerpage_obj = dataSet(username, password, confirmPassword);
-		registerpage_obj.clickRegister();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-	}
+//	@When("The user clicks Register button after entering valid {string} and different passwords in {string} and {string}")
+//	public void the_user_clicks_register_button_after_entering_valid_and_different_passwords_in_and(String username,
+//			String password, String confirmPassword) {
+//		registerpage_obj = dataSet(username, password, confirmPassword);
+//		registerpage_obj.clickRegister();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+//	}
 	
-
+	@When("The user clicks Register button after entering valid username {string} and different passwords in {int}")
+	public void the_user_clicks_register_button_after_entering_valid_username_and_different_passwords_in(String sheetName, Integer row_Number) throws InvalidFormatException, IOException {
+		registerpage_obj.registerWithInputData(sheetName,row_Number);
+		registerpage_obj.clickRegister();
+	}
 	@Then("The user should able to see an password warning message")
 	public void the_user_should_able_to_see_an_password_warning_message() {
 		registerpage_obj.warningMassege();
@@ -224,12 +262,17 @@ public void the_user_clicks_register_button_after_entering_with_valid_and_and_in
 			Assert.assertTrue(false);
 		}
 	}
-
-	@When("User try to enter invalid value in {string} and  {string} and {string}")
-	public void user_try_to_enter_invalid_value_in_and_and(String username, String password, String confirmPassword) {
-		registerpage_obj = dataSet(username, password, confirmPassword);
+//
+//	@When("User try to enter invalid value in {string} and  {string} and {string}")
+//	public void user_try_to_enter_invalid_value_in_and_and(String username, String password, String confirmPassword) {
+//		registerpage_obj = dataSet(username, password, confirmPassword);
+//		registerpage_obj.clickRegister();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+//	}
+	@When("User try to enter invalid value in username {string} and  {int}")
+	public void user_try_to_enter_invalid_value_in_username_and(String sheetName, Integer row_Number) throws InvalidFormatException, IOException {
+		registerpage_obj.registerWithInputData(sheetName,row_Number);
 		registerpage_obj.clickRegister();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	}
 
 	@Then("user is not getting Error message after inputing invalid value in respective field")

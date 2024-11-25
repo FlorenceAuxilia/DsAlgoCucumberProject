@@ -2,6 +2,11 @@ package com.dsalgo.pom;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 //import org.checkerframework.checker.units.qual.s;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -12,6 +17,7 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 import com.dsalgo.stepdefinition.DSAlgoCommon_SD;
+import com.dsalgo.utility.ExcelReader;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -45,7 +51,7 @@ public class DSAlgoRegisterPom extends DSAlgoCommonPom {
 
 	}
 
-	public void confirmPassword(String password2) {
+	public void enterConfirmPassword(String password2) {
 		driver.findElement(confirmPassword).sendKeys(password2);
 
 	}
@@ -197,6 +203,23 @@ public class DSAlgoRegisterPom extends DSAlgoCommonPom {
 		return false;
 		
 	}
+
+	public void registerWithInputData(String sheetName, int row_Number) throws InvalidFormatException, IOException {
+		ExcelReader reader = new ExcelReader();
+		//System.out.println("excelReader is :: " + reader + " Sheet name :: " + sheetName);
+		List<Map<String, String>> testData = reader.getData(System.getProperty("user.dir")
+				+ "\\src\\test\\resources\\Utlils\\NewPython.xlsx",sheetName);
+		String username = testData.get(row_Number).get("username");
+		String password =testData.get(row_Number).get("password");
+		String confirmPassword=testData.get(row_Number).get("confirmPassword");
+		System.out.println("Username--- "+ username+ "passwd--- " +password + "Confirmpasswd--- "+ confirmPassword);
+		enterUsername(username);
+		enterPassword(password);
+		enterConfirmPassword(confirmPassword);
+		
+	}
+
+	
 
 	
 
